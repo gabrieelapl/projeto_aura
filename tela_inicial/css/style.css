@@ -1,0 +1,399 @@
+:root {
+  --branco: #f2f2f2;
+  --roxo_vivo: #9857f2;
+  --roxo_escuro: #4f3673;
+  --preto: #262626;
+  --verde: #98d96a;
+  --cinza: #d4d3d3;
+}
+
+@font-face {
+  font-family: "Adam-Bold";
+  src: url(../fontes/Adam-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Adam-Light";
+  src: url(../fontes/Adam-Light.ttf);
+}
+
+@font-face {
+  font-family: "Tommy-Light";
+  src: url(../fontes/MADE\ TOMMY\ Light_PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: "Tommy-Bold";
+  src: url(../fontes/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: "Tommy-Medium";
+  src: url(../fontes/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: "Tommy-Regular";
+  src: url(../fontes/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--branco);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  border: 2px solid #dcdcdc;
+}
+
+body {
+  background-color: var(--branco);
+}
+
+navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 50px;
+  background-color: var(--branco);
+  box-shadow: 0px 19px 15px -3px #0000001a;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px;
+  margin-right: 10px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-family: "Tommy-Light";
+}
+
+.btn-login {
+  color: var(--branco);
+  background-color: var(--verde);
+  border: none;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 40px;
+  font-family: "Tommy-Medium";
+  border-radius: 30px;
+  box-shadow: 0px 10px 21px 5px #0000001a;
+  text-decoration: none;
+}
+
+.header {
+  background-color: var(--roxo_vivo);
+  height: 550px;
+}
+
+.header img {
+  position: relative;
+  width: 720px;
+}
+
+.header h1 {
+  font-family: "Tommy-Bold";
+  color: var(--branco);
+  margin-top: 35%;
+  margin-left: 20%;
+}
+
+.header h4 {
+  font-family: "Tommy-Medium";
+  color: var(--branco);
+  width: 70%;
+  margin-left: 20%;
+}
+
+.header p {
+  font-family: "Tommy-Light";
+  color: var(--branco);
+  width: 70%;
+  margin-left: 20%;
+}
+
+.header button {
+  color: var(--branco);
+  background-color: var(--verde);
+  border: none;
+  height: 40px;
+  line-height: 30px;
+  padding: 0 40px;
+  font-family: "Tommy-Medium";
+  border-radius: 30px;
+  margin-top: 1%;
+  margin-left: 20%;
+  box-shadow: 0px 10px 21px 5px #0000001a;
+}
+
+.titulo {
+  color: var(--roxo_escuro);
+  font-family: "Tommy-Bold";
+  text-align: center;
+}
+
+.txt1 {
+  color: var(--roxo_escuro);
+  font-family: "Tommy-Medium";
+  text-align: center;
+  width: 55%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  background-color: #8a3cff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.icon i {
+  font-size: 28px;
+  color: white;
+}
+
+.card h2 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #000000;
+  font-family: "Tommy-Medium";
+}
+
+.line {
+  width: 50px;
+  height: 2px;
+  background-color: var(--roxo_vivo);
+  margin: 10px auto 20px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #000000;
+  line-height: 1.5;
+  text-align: left;
+  font-family: "Tommy-Medium";
+}
+
+.sobre-aura-background {
+  background-color: #ffffff;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 5%;
+  gap: 40px;
+}
+
+.sobre-img img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.sobre-text {
+  max-width: 600px;
+  color: #000000;
+  font-family: "Tommy-Light";
+}
+
+.sobre-text h2 {
+  font-size: 2rem;
+  color: var(--roxo_escuro);
+  margin-bottom: 20px;
+  font-family: "Tommy-Bold";
+}
+
+.sobre-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 900px) {
+  section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-text {
+    max-width: 100%;
+  }
+
+  .sobre-text h2 {
+    text-align: center;
+  }
+
+  .sobre-text p {
+    text-align: justify;
+  }
+}
+
+.card-projeto {
+  background-color: var(--branco);
+  height: 100%;
+  border-color: #d4d3d3;
+}
+
+.titulo-card {
+  font-family: "Tommy-Medium";
+}
+
+.texto-card {
+  font-family: "Tommy-Light";
+  font-size: 15px;
+}
+
+.texto-cor {
+  color: #636363;
+}
+
+.titulo-sobre-nos {
+  color: var(--roxo_escuro);
+  font-family: "Tommy-Bold";
+  margin-left: 1%;
+}
+
+.sobre-nos-texto {
+  font-size: 20px;
+  font-family: "Tommy-Medium";
+  text-align: left;
+}
+
+.card-equipe {
+  position: relative;
+  width: 220px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Substitua por sua imagem */
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border-bottom: 5px solid #9857f2;
+}
+
+.texto-nome {
+  color: #ffffff;
+  font-family: "Tommy-Medium";
+  margin-top: 270px;
+}
+
+.texto-funcao {
+  color: #ffffff;
+  font-family: "Tommy-Light";
+  font-size: 15px;
+}
+
+.card-img {
+  width: 25px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: white;
+  transition: height 0.5s ease;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.card-equipe:hover .overlay {
+  height: 100%;
+  opacity: 1;
+}
+
+.overlay h5 {
+  margin: 0;
+  color: #8a2be2;
+}
+
+.overlay p {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #000000;
+  text-align: left;
+  font-family: "Tommy-Light";
+}
+
+footer .container-fluid {
+  background-color: var(--roxo_escuro);
+  height: 400px;
+}
+
+footer h2 {
+  font-family: "Tommy-Bold";
+  color: #ffffff;
+}
+
+footer p {
+  font-family: "Tommy-Regular";
+  color: #ffffff;
+  font-size: 13px;
+}
+
+footer hr {
+  color: #ffffff;
+}
+
+footer h5 {
+  color: #ffffff;
+  font-family: "Tommy-Medium";
+}
+
+.direitos {
+  color: #ffffff;
+  font-family: "Tommy-Light";
+}

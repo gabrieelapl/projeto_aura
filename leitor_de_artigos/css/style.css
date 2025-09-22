@@ -1,0 +1,109 @@
+:root {
+  --branco: #f2f2f2;
+  --roxo_vivo: #9857f2;
+  --roxo_escuro: #4f3673;
+  --preto: #262626;
+  --verde: #98d96a;
+  --cinza: #d4d3d3;
+}
+
+@font-face {
+  font-family: "Adam-Bold";
+  src: url(../fontes/Adam-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Adam-Light";
+  src: url(../fontes/Adam-Light.ttf);
+}
+
+@font-face {
+  font-family: "Tommy-Light";
+  src: url(../fontes/MADE\ TOMMY\ Light_PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: "Tommy-Bold";
+  src: url(../fontes/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: "Tommy-Medium";
+  src: url(../fontes/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf);
+}
+
+@font-face {
+  font-family: "Tommy-Regular";
+  src: url(../fontes/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--branco);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--preto);
+  text-align: center;
+  font-family: "Tommy-Bold";
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--preto);
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: "Tommy-Medium";
+}
+
+.upload-box {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-box img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.btn-upload {
+  display: inline-block;
+  background-color: var(--verde);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background 0.3s;
+  box-shadow: 0px 10px 21px 5px #0000001a;
+}
+
+.btn-upload:hover {
+  background-color: #78cc59;
+}
+
+.upload-box p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #888;
+}
