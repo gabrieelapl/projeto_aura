@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Analisar Citações</title>
+    <link rel="stylesheet" href="../static/css/stylecitacoes.css" type="text/css">
+</head>
+<body>
+    <form>
+        <h1 class="titulo-resumo">Analisar Citações</h1>
+        <p class="subtitulo-resumo">Extraia e analise as citações e referências em seu artigo de pesquisa.</p>
+
+        <!-- PDF Card -->
+<div class="pdf-card">
+    <div class="pdf-card-left">
+        <img src="../static/imgs/pdf-icon.png" alt="PDF Icon" class="pdf-icon">
+        <p>Artigo-científico.pdf</p>
+    </div>
+
+    <div class="pdf-card-right">
+        <span class="pdf-size">0,33 MB</span>
+        <a href="{{ url_for('static', filename='pdf/artigocient.pdf') }}" target="_blank" class="btn-pdf">Visualizar documento</a>
+    </div>
+</div>
+
+
+        <!-- Resultados de citações -->
+        <div class="resumo">
+    <h1>Resultados de Citações</h1>
+    <p class="total-citacoes">{{ total_citacoes }}</p>
+
+    {% for ref in referencias %}
+    <div class="referencia">
+        <div class="referencia-info">
+            <strong>{{ ref.titulo }}</strong>
+            <span>{{ ref.autores }}</span>
+        </div>
+        <span class="badge-citacao">Citado {{ ref.citado }}x</span>
+    </div>
+    {% endfor %}
+</div>
+
+    </form>
+</body>
+</html>

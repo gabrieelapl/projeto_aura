@@ -9,32 +9,32 @@
 
 @font-face {
   font-family: "Adam-Bold";
-  src: url(../fontes/Adam-Bold.ttf);
+  src: url(../font/Adam-Bold.ttf);
 }
 
 @font-face {
   font-family: "Adam-Light";
-  src: url(../fontes/Adam-Light.ttf);
+  src: url(../font/Adam-Light.ttf);
 }
 
 @font-face {
   font-family: "Tommy-Light";
-  src: url(../fontes/MADE\ TOMMY\ Light_PERSONAL\ USE.otf);
+  src: url(../font/MADE\ TOMMY\ Light_PERSONAL\ USE.otf);
 }
 
 @font-face {
   font-family: "Tommy-Bold";
-  src: url(../fontes/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf);
+  src: url(../font/MADE\ TOMMY\ Bold_PERSONAL\ USE.otf);
 }
 
 @font-face {
   font-family: "Tommy-Medium";
-  src: url(../fontes/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf);
+  src: url(../font/MADE\ TOMMY\ Medium_PERSONAL\ USE.otf);
 }
 
 @font-face {
   font-family: "Tommy-Regular";
-  src: url(../fontes/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
+  src: url(../font/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
 }
 
 body::-webkit-scrollbar {
@@ -179,6 +179,21 @@ nav ul li a {
   transform: translateY(-8px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
+
+.card a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.card a:visited,
+.card a:hover,
+.card a:focus,
+.card a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+  outline: none !important;
+}
+
 
 .icon {
   width: 60px;

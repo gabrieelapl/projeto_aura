@@ -1,0 +1,208 @@
+/* ========================= */
+/* BASE RESPONSIVA           */
+/* ========================= */
+body {
+  font-family: "Made Tommy", Arial, sans-serif;
+  background-color: #F2F2F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
+  padding: 50px 0;
+  overflow-y: auto;
+}
+
+@font-face {
+    font-family: 'Made Tommy';
+    src: url("{{ url_for('static', filename='fonts/MadeTommy-Regular.ttf') }}") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+form {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 8px;
+  width: 1158px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ========================= */
+/* PDF CARD E PERGUNTAS      */
+/* ========================= */
+.pdf-card, .pergunta {
+  width: 100%;
+  max-width: 850px; /* mantém proporção interna */
+  box-sizing: border-box;
+}
+
+.pdf-card {
+  background: #F2F2F2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+}
+
+/* PDF CARD */
+.pdf-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F2F2F2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.pdf-card-left {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* empurra o lado direito */
+  gap: 12px;
+}
+
+.pdf-card-left p {
+  margin: 0;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.pdf-card-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pdf-size {
+  font-size: 14px;
+  color: #777;
+}
+
+.pdf-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.btn-pdf {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-pdf:hover {
+  background: #e5e5e5;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .pdf-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pdf-card-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+.pergunta {
+  background: #F2F2F2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.pergunta h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.pergunta ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pergunta li {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pergunta li:hover {
+  background: #f0f0f0;
+}
+
+li.verde { background-color: #d4edda !important; }
+li.vermelho { background-color: #f8d7da !important; }
+
+/* ========================= */
+/* TITULOS                   */
+/* ========================= */
+.titulo-resumo, .titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.subtitulo-resumo, .descricao {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* ========================= */
+/* RESPONSIVO                */
+/* ========================= */
+@media (max-width: 1024px) {
+  form { width: 90%; padding: 40px; }
+  .pdf-card, .pergunta { max-width: 700px; }
+}
+
+@media (max-width: 768px) {
+  form { width: 95%; padding: 30px; }
+  .pdf-card, .pergunta { max-width: 600px; }
+  .titulo-resumo, .titulo { font-size: 22px; }
+  .subtitulo-resumo, .descricao { font-size: 14px; }
+  .pdf-icon { width: 35px; height: 35px; }
+}
+
+@media (max-width: 480px) {
+  form { width: 100%; padding: 20px; }
+  .pdf-card, .pergunta { max-width: 100%; }
+  .titulo-resumo, .titulo { font-size: 20px; }
+  .subtitulo-resumo, .descricao { font-size: 12px; }
+  .pdf-icon { width: 30px; height: 30px; }
+}

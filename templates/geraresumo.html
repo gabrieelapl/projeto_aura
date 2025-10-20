@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerar Resumo</title>
+    <link rel="stylesheet" href="../static/css/stylegeraresumo.css" type="text/css">
+</head>
+<body>
+    
+    <!-- Formulário de login -->
+    <form method="POST" action="/geraresumo">
+        <h1 class="titulo-resumo">Gerar resumo</h1>
+        <p class="subtitulo-resumo">Nossa IA analisará seu artigo de pesquisa e gerará um resumo conciso destacando os pontos principais.</p> 
+
+        <!-- PDF Card -->
+<div class="pdf-card">
+  <div class="pdf-card-left">
+    <img src="../static/imgs/pdf-icon.png" alt="PDF Icon" class="pdf-icon">
+    <p>Artigo-científico.pdf</p>
+  </div>
+
+  <div class="pdf-card-right">
+    <span class="pdf-size">0,33 MB</span>
+    <a href="{{ url_for('static', filename='pdf/artigocient.pdf') }}" target="_blank" class="btn-pdf">
+      Visualizar documento
+    </a>
+  </div>
+</div>
+
+    <div class="resumo">
+        <h1 class="titulo-resumo">Resumo</h1>
+        <p >
+        O artigo aborda como a Inteligência Artificial (IA) está transformando o ensino superior, personalizando o aprendizado, identificando dificuldades, reduzindo custos e tornando as aulas mais dinâmicas. Apesar dos benefícios, a IA apresenta desafios como ética, dependência tecnológica e a necessidade de capacitação docente. A IA consiste em sistemas capazes de realizar tarefas típicas da inteligência humana e, no ensino superior, é aplicada em tutoria inteligente, análise de dados e recomendações de conteúdo, possibilitando experiências de aprendizagem mais personalizadas e eficazes. Entre as aplicações práticas estão tutoria inteligente, análise preditiva para identificar alunos com dificuldades, chatbots educacionais para dúvidas frequentes, correção automática de avaliações e adaptação de conteúdos conforme o perfil do estudante. Os principais desafios incluem ética e privacidade, desigualdade de acesso, capacitação docente e dependência tecnológica.</p>
+
+<p><strong>Introdução</strong><br>
+- O artigo discute como a Inteligência Artificial (IA) está transformando o ensino superior.<br>
+- Personaliza o aprendizado, identifica dificuldades, reduz custos e torna as aulas mais dinâmicas.<br>
+- Apresenta desafios como ética, dependência tecnológica e necessidade de capacitação docente.</p>
+
+<p><strong>Inteligência Artificial no Ensino Superior</strong><br>
+- IA é a capacidade de sistemas realizarem tarefas típicas da inteligência humana.<br>
+- Aplicada em tutoria inteligente, análise de dados e recomendações de conteúdo.<br>
+- Permite experiências de aprendizagem mais personalizadas e eficazes.</p>
+
+<p><strong>Aplicações Práticas da IA</strong><br>
+- Tutoria Inteligente: orienta o aluno conforme desempenho.<br>
+- Análise Preditiva: identifica alunos com possíveis dificuldades.<br>
+- Chatbots Educacionais: respondem dúvidas frequentes.<br>
+- Correção Automática de Avaliações: agiliza o trabalho do professor.<br>
+- Adaptação de Conteúdos: ajusta aulas ao perfil e progresso do estudante.</p>
+
+<p><strong>Desafios e Limitações</strong><br>
+- Ética e Privacidade: uso de dados sensíveis requer regulamentação.<br>
+- Desigualdade de Acesso: nem todas as instituições têm recursos para IA.<br>
+- Capacitação Docente: professores precisam dominar essas tecnologias.<br>
+- Dependência Tecnológica: excesso de confiança nos sistemas pode ser prejudicial.
+
+        <h1 class="titulo-resumo">Palavras-Chave</h1>
+        
+        <div class="palavras-chaves">
+    <span class="keyword">PLN</span>
+    <span class="keyword">Revisão Sistemática</span>
+    <span class="keyword">Educação</span>
+    <span class="keyword">ODS</span>
+</div>
+
+
+    </div>
+
+
+        
+    </form>
+</body>
+</html>

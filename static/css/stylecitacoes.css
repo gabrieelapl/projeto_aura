@@ -1,0 +1,244 @@
+/* ========================= */
+/* BASE RESPONSIVA            */
+/* ========================= */
+body {
+    font-family: 'Made Tommy', Arial, sans-serif;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    min-height: 100vh;
+    padding: 50px 0;
+    overflow-y: auto;
+}
+
+form {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1158px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================= */
+/* PDF CARD E RESUMO          */
+/* ========================= */
+/* ========================= */
+/* PDF CARD - CITACOES       */
+/* ========================= */
+.pdf-card, .resumo {
+    width: 100%;
+    max-width: 850px;
+    box-sizing: border-box;
+}
+
+/* PDF Card */
+.pdf-card {
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* separa esquerda e direita */
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Lado esquerdo */
+.pdf-card-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1; /* empurra lado direito para borda */
+}
+
+.pdf-card-left img.pdf-icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+}
+
+.pdf-card-left p {
+    margin: 0;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+/* Lado direito */
+.pdf-card-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* espaço entre tamanho e botão */
+}
+
+.pdf-size {
+    font-size: 14px;
+    color: #777;
+}
+
+.btn-pdf {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none; /* remove sublinhado */
+    color: #000;
+}
+
+.btn-pdf:hover {
+    background: #e5e5e5;
+}
+
+
+/* Resumo de citações */
+.resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 90%;
+}
+
+.total-citacoes {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 95%;
+    font-size: 48px;
+    font-weight: bold;
+    color: #8e44ad;
+    text-align: center;
+    margin: 15px 0 10px;
+    border: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.referencia {
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    width: 90%;
+    display: flex;
+    align-items: center;       /* centraliza verticalmente */
+    justify-content: space-between; /* esquerda ↔ direita */
+    padding: 12px 20px;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.referencia-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* garante que tudo grude na esquerda */
+}
+
+.referencia-info strong {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.referencia-info span {
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+.badge-citacao {
+    background-color: #f0f0f0;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ========================= */
+/* RESPONSIVO                */
+/* ========================= */
+@media (max-width: 1024px) {
+    form {
+        width: 80%;
+        padding: 40px;
+    }
+    .pdf-card, .resumo {
+        max-width: 700px; /* mesma largura */
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 30px;
+    }
+    .pdf-card, .resumo {
+        max-width: 600px; /* mesma largura */
+    }
+    .titulo-resumo { font-size: 22px; }
+    .subtitulo-resumo { font-size: 14px; }
+    .pdf-icon { width: 35px; height: 35px; }
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 95%;
+        padding: 20px;
+    }
+    .pdf-card, .resumo {
+        max-width: 100%; /* mesma largura */
+    }
+    .titulo-resumo { font-size: 20px; }
+    .subtitulo-resumo { font-size: 12px; }
+    .pdf-icon { width: 30px; height: 30px; }
+    .keyword { font-size: 12px; padding: 4px 10px; }
+}
+
+@media (max-width: 768px) {
+    .resumo {
+        padding: 15px 20px;
+    }
+    .total-citacoes {
+        font-size: 36px;
+    }
+    .referencia-info strong {
+        font-size: 15px;
+    }
+    .referencia-info span {
+        font-size: 13px;
+    }
+    .badge-citacao {
+        font-size: 13px;
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resumo {
+        padding: 10px 15px;
+    }
+    .total-citacoes {
+        font-size: 28px;
+    }
+}
+@font-face {
+    font-family: 'Made Tommy';
+    src: url("{{ url_for('static', filename='fonts/MadeTommy-Regular.ttf') }}") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+

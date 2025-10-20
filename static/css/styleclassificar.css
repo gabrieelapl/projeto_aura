@@ -1,0 +1,116 @@
+body {
+    font-family: "Made Tommy", Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: 'Made Tommy';
+    src: url("{{ url_for('static', filename='fonts/MadeTommy-Regular.ttf') }}") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container {
+    max-width: 850px;
+    width: 100%;
+    background-color: #fff;
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 8px;
+    max-width: 1158px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* PDF Card */
+.pdf-card {
+    background: #f2f2f2;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.pdf-card p { flex-grow: 1; margin: 0 15px; font-weight: 500; }
+.pdf-size { font-size: 14px; color: #777; margin-right: 15px; }
+.pdf-icon { width: 35px; height: 35px; }
+.btn-pdf { background: #f0f0f0; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 14px; }
+.btn-pdf:hover { background: #e5e5e5; }
+
+/* Categorias */
+.categoria-card {
+    background: #f2f2f2;
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 12px;
+    background: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #9b59b6; /* roxo */
+}
+
+/* Tópicos Principais */
+.subtitulo-topicos {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.topicos-principais {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.topico {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .titulo { font-size: 22px; }
+    .descricao { font-size: 14px; }
+    .pdf-icon { width: 30px; height: 30px; }
+}

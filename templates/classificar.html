@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Classificar e Organizar</title>
+<link rel="stylesheet" href="../static/css/styleclassificar.css" type="text/css">
+</head>
+<body>
+<main class="container">
+
+    <h1 class="titulo">Classificar e Organizar</h1>
+    <p class="descricao">Categorize automaticamente seu artigo de pesquisa por campo e identifique os tópicos principais.</p>
+
+    <!-- PDF Card -->
+    <div class="pdf-card">
+        <img src="../static/imgs/pdf-icon.png" alt="PDF Icon" class="pdf-icon">
+        <p>{{ pdf_nome }}</p>
+        <span class="pdf-size">{{ pdf_tamanho }}</span>
+        <a href="{{ pdf_url }}" target="_blank" class="btn-pdf">Visualizar documento</a>
+    </div>
+
+    <!-- Categorias -->
+    {% for cat in categorias %}
+    <div class="categoria-card">
+        <span>{{ cat.nome }}</span>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ cat.percent }}%;"></div>
+        </div>
+        <span class="percent">{{ cat.percent }}%</span>
+    </div>
+    {% endfor %}
+
+    <!-- Tópicos Principais -->
+    <h2 class="subtitulo-topicos">Tópicos Principais</h2>
+    <div class="topicos-principais">
+        {% for topico in topicos_principais %}
+        <span class="topico">{{ topico }}</span>
+        {% endfor %}
+    </div>
+
+</main>
+</body>
+</html>

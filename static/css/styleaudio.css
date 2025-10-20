@@ -1,0 +1,157 @@
+/* ========================= */
+/* BASE RESPONSIVA            */
+/* ========================= */
+body {
+    font-family: 'Made Tommy', Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: 'Made Tommy';
+    src: url("{{ url_for('static', filename='fonts/MadeTommy-Regular.ttf') }}") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container, form, .pdf-card, .pdf-container, .resumo {
+    width: 100%;
+    max-width: 850px;
+    box-sizing: border-box;
+}
+
+/* Formulário */
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 1158px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* PDF card / PDF container */
+.pdf-card, .pdf-container {
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.pdf-card p, .pdf-container p {
+    margin: 0;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.pdf-size {
+    font-size: 14px;
+    color: #777;
+    margin-right: 15px;
+}
+
+.pdf-icon {
+    width: 35px;
+    height: 35px;
+}
+
+.btn-pdf {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-pdf:hover {
+    background: #e5e5e5;
+}
+
+/* Palavras-chave */
+.keyword {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 5px 5px 5px 0;
+    font-size: 14px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Resumo */
+.resumo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.resumo audio {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+    background-color: transparent;
+    outline: none;
+}
+
+/* ========================= */
+/* TITULOS                   */
+/* ========================= */
+.titulo-resumo, .titulo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitulo-resumo, .descricao {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* ========================= */
+/* RESPONSIVO                */
+/* ========================= */
+@media (max-width: 1024px) {
+    form { padding: 25px; }
+    .pdf-card, .pdf-container, .resumo { max-width: 700px; }
+}
+
+@media (max-width: 768px) {
+    form { padding: 20px; }
+    .pdf-card, .pdf-container, .resumo { max-width: 600px; }
+    .titulo-resumo, .titulo { font-size: 22px; }
+    .subtitulo-resumo, .descricao { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    form { padding: 15px; }
+    .pdf-card, .pdf-container, .resumo {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .titulo-resumo, .titulo { font-size: 20px; }
+    .subtitulo-resumo, .descricao { font-size: 12px; }
+    .pdf-icon { width: 30px; height: 30px; }
+    .keyword { font-size: 12px; padding: 4px 10px; }
+    .btn-pdf { margin-top: 10px; }
+}

@@ -11,7 +11,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
   <!--CSS-->
-  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="../static/css/styleTelaInicial.css" type="text/css">
   <title>AURA</title>
 
   <!--Animação-->
@@ -29,7 +29,7 @@
   <!--Navbar-->
   <navbar>
     <div class="logo">
-      <img src="imgs/logo.png" alt="Logo AURA">
+      <img src="../static/imgs/logo.png" alt="Logo AURA">
     </div>
     <nav>
       <ul>
@@ -39,7 +39,7 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a href="#" class="btn-login">Login</a>
+    <a href="/login" class="btn-login">Login</a>
   </navbar>
 
   <!--HEADER-->
@@ -50,12 +50,12 @@
           <h1>Transformando</h1>
           <h4>sua pesquisa acadêmica com inteligência e inovação.</h4>
           <p>Facilitando a análise científica, a organização de artigos e o aprendizado eficiente.</p>
-          <a href="#produto">
+          <a href="/cadastro">
             <button>Cadastre-se</button>
           </a>
         </div>
         <div class="col-7">
-          <img class="mt-5" src="imgs/tablet.png" alt="">
+          <img class="mt-5" src="../static/imgs/tablet.png" alt="">
         </div>
       </div>
     </div>
@@ -73,48 +73,59 @@
 
     <div class="grid mt-5">
       
-      <div class="card">
-        <div class="icon"><i class="fas fa-pen"></i></div>
-        <h2>Gerar Resumo</h2>
-        <div class="line"></div>
-        <p>Obtenha um resumo automático do artigo, destacando pontos principais. Facilite a compreensão e acelere sua análise. Ideal para revisões sistemáticas rápidas e eficientes.</p>
-      </div>
+      <a href="/geraresumo">
+        <div class="card">
+          <div class="icon"><i class="fas fa-pen"></i></div>
+          <h2>Gerar Resumo</h2>
+          <div class="line"></div>
+          <p>Obtenha um resumo automático do artigo, destacando pontos principais. Facilite a compreensão e acelere sua análise. Ideal para revisões sistemáticas rápidas e eficientes.</p>
+        </div>
+      </a>
 
-      <div class="card">
-        <div class="icon"><i class="fas fa-headphones"></i></div>
-        <h2>Ouvir Resumo em Áudio</h2>
-        <div class="line"></div>
-        <p>Escute o resumo gerado pela IA, tornando a leitura mais acessível. Acelere seu aprendizado enquanto realiza outras atividades. Ideal para estudos dinâmicos e práticos.</p>
-      </div>
+      <a href="/audio">
+        <div class="card">
+          <div class="icon"><i class="fas fa-headphones"></i></div>
+          <h2>Ouvir Resumo em Áudio</h2>
+          <div class="line"></div>
+          <p>Escute o resumo gerado pela IA, tornando a leitura mais acessível. Acelere seu aprendizado enquanto realiza outras atividades. Ideal para estudos dinâmicos e práticos.</p>
+        </div>
+      </a>
 
-      <div class="card">
-        <div class="icon"><i class="fas fa-object-group"></i></div>
-        <h2>Selecionar Resumos</h2>
-        <div class="line"></div>
-        <p>Extraia e destaque o resumos automaticamente. Visualize rapidamente o conteúdo essencial do artigo. Agilize sua análise sem perder informações importantes.</p>
-      </div>
+      <a href="/selecionar">
+        <div class="card">
+          <div class="icon"><i class="fas fa-object-group"></i></div>
+          <h2>Selecionar Resumos</h2>
+          <div class="line"></div>
+          <p>Extraia e destaque o resumos automaticamente. Visualize rapidamente o conteúdo essencial do artigo. Agilize sua análise sem perder informações importantes.</p>
+        </div>
+      </a>
 
-      <div class="card">
-        <div class="icon"><i class="fas fa-question"></i></div>
-        <h2>Gerar Perguntas</h2>
-        <div class="line"></div>
-        <p>Receba perguntas automáticas baseadas no conteúdo. Reforce o aprendizado e melhore a retenção das informações. Ideal para fixação e revisão eficiente.</p>
-      </div>
+      <a href="/perguntas">
+        <div class="card">
+          <div class="icon"><i class="fas fa-question"></i></div>
+          <h2>Gerar Perguntas</h2>
+          <div class="line"></div>
+          <p>Receba perguntas automáticas baseadas no conteúdo. Reforce o aprendizado e melhore a retenção das informações. Ideal para fixação e revisão eficiente.</p>
+        </div>
+      </a>
 
-      <div class="card">
-        <div class="icon"><i class="fas fa-tasks"></i></div>
-        <h2>Classificar e Organizar</h2>
-        <div class="line"></div>
-        <p>Categorize seus artigos em áreas temáticas. Organize sua pesquisa de forma eficiente e encontre facilmente o conteúdo relevante.</p>
-      </div>
+      <a href="/classificar">
+        <div class="card">
+          <div class="icon"><i class="fas fa-tasks"></i></div>
+          <h2>Classificar e Organizar</h2>
+          <div class="line"></div>
+          <p>Categorize seus artigos em áreas temáticas. Organize sua pesquisa de forma eficiente e encontre facilmente o conteúdo relevante.</p>
+        </div>
+      </a>
 
-      <div class="card">
-        <div class="icon"><i class="fas fa-quote-right"></i></div>
-        <h2>Analisar Citações</h2>
-        <div class="line"></div>
-        <p>Identifique e organize as principais referências citadas. Facilite a visualização das fontes essenciais para sua pesquisa e análise crítica.</p>
-      </div>
-
+      <a href="/citacoes">
+        <div class="card">
+          <div class="icon"><i class="fas fa-quote-right"></i></div>
+          <h2>Analisar Citações</h2>
+          <div class="line"></div>
+          <p>Identifique e organize as principais referências citadas. Facilite a visualização das fontes essenciais para sua pesquisa e análise crítica.</p>
+        </div>
+      </a>
     </div>
   </div>
 
@@ -123,7 +134,7 @@
     <div class="container">
       <section>
     <div class="sobre-img">
-      <img src="imgs/sobre_aura.png" alt="Imagem AURA">
+      <img src="../static/imgs/sobre_aura.png" alt="Imagem AURA">
     </div>
     <div class="sobre-text">
       <h2 class="titulo">Sobre o AURA</h2>
@@ -147,7 +158,7 @@
     <div class="container-fluid mt-5">
       <div class="container">
         <div id="container">
-          <img src="imgs/diagrama.png" alt="">
+          <img src="../static/imgs/diagrama.png" alt="">
           <h1 class="mt-5 titulo-sobre-nos" id="sobre-nos">Sobre nós</h1>
         </div>
 
@@ -159,13 +170,13 @@
         <div class="row mt-5">
           <!--Bia-->
           <div class="col-3">
-            <div class="card-equipe" style="background-image: url('imgs/bia.png');">
+            <div class="card-equipe" style="background-image: url('../static/imgs/bia.png');">
               <h5 class="text-center texto-nome">Beatriz Egen</h5>
               <p class="text-center texto-funcao">Designer</p>
 
               <div class="overlay text-center">
                 <center>
-                  <img class="card-img" src="imgs/lapis.png" alt="">
+                  <img class="card-img" src="../static/imgs/lapis.png" alt="">
                 </center>
                 <h5 class="mt-3">Beatriz Egen</h5>
                 <p>Responsável por criar e estruturar toda a identidade visual do projeto, garantindo que cada elemento transmita com clareza os valores da equipe. Atua no design da interface, paleta de cores, tipografia e experiência do usuário. </p>
@@ -175,13 +186,13 @@
 
           <!--Trixie-->
           <div class="col-3">
-            <div class="card-equipe" style="background-image: url('imgs/trixie.png');">
+            <div class="card-equipe" style="background-image: url('../static/imgs/trixie.png');">
               <h5 class="text-center texto-nome">Andreine Penteado</h5>
               <p class="text-center texto-funcao">Administradora de Banco de Dados</p>
 
               <div class="overlay text-center">
                 <center>
-                  <img class="card-img" src="imgs/lapis.png" alt="">
+                  <img class="card-img" src="../static/imgs/lapis.png" alt="">
                 </center>
                 <h5 class="mt-3">Andreine Penteado</h5>
                 <p>Responsável por estruturar, organizar e proteger os dados do projeto, garantindo desempenho, segurança e integridade das informações. Atua na modelagem do banco, controle de acessos e suporte às funcionalidades da plataforma.</p>
@@ -191,13 +202,13 @@
 
           <!--Dani-->
           <div class="col-3">
-            <div class="card-equipe" style="background-image: url('imgs/dani.png');">
+            <div class="card-equipe" style="background-image: url('../static/imgs/dani.png');">
               <h5 class="text-center texto-nome">Danieli Fiel</h5>
               <p class="text-center texto-funcao">Administradora de Redes</p>
 
               <div class="overlay text-center">
                 <center>
-                  <img class="card-img" src="imgs/lapis.png" alt="">
+                  <img class="card-img" src="../static/imgs/lapis.png" alt="">
                 </center>
                 <h5 class="mt-3">Danieli Fiel</h5>
                 <p>Responsável por configurar, monitorar e manter a infraestrutura de rede e os sistemas operacionais utilizados no projeto, garantindo conectividade, estabilidade e segurança dos ambientes utilizados pela equipe.</p>
@@ -207,13 +218,13 @@
 
           <!--Gabi-->
           <div class="col-3">
-            <div class="card-equipe" style="background-image: url('imgs/gabi.png');">
+            <div class="card-equipe" style="background-image: url('../static/imgs/gabi.png');">
               <h5 class="text-center texto-nome">Gabriela Lino</h5>
               <p class="text-center texto-funcao">Programadora</p>
 
               <div class="overlay text-center">
                 <center>
-                  <img class="card-img" src="imgs/lapis.png" alt="">
+                  <img class="card-img" src="../static/imgs/lapis.png" alt="">
                 </center>
                 <h5 class="mt-3">Gabriela Lino</h5>
                 <p>Responsável pelo desenvolvimento das funcionalidades do sistema, transformando ideias em código eficiente. Atua na construção da interface, integração com a lógica de dados e testes para garantir a usabilidade e o bom desempenho do projeto.</p>
@@ -235,15 +246,15 @@
         <br>
         <div class="row mt-5">
           <div class="col-4">
-            <img src="imgs/email.png" alt="">
+            <img src="../static/imgs/email.png" alt="">
             <p class="mt-3">contact@fatec.sp.gov.br</p>
           </div>
           <div class="col-4">
-            <img src="imgs/telefone.png" alt="">
+            <img src="../static/imgs/telefone.png" alt="">
             <p class="mt-3">(13) 3822-2023</p>
           </div>
           <div class="col-4">
-            <img src="imgs/local.png" alt="">
+            <img src="../static/imgs/local.png" alt="">
             <p class="mt-3">FATEC Registro, São Paulo, Brasil</p>
           </div>
         </div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - AURA</title>
+    <link rel="stylesheet" href="../static/css/stylelogin.css" type="text/css">
+</head>
+<body>
+    <!-- Elementos de decoração -->
+    <div class="elipse1"></div>
+    <div class="elipse2"></div>
+    <div class="elipse3"></div>
+    
+
+    <!-- Formulário de login -->
+    <form method="POST" action="/login">
+        <h1 class="titulo-login">Login</h1>
+        <p class="subtitulo-login">Educação ao seu alcance. Faça login agora!</p> <br>
+
+        <!-- Mensagem de erro flutuante -->
+        {% if erro %}
+        <div class="erro-login">{{ erro }}</div>
+        {% else %}
+        <div class="erro-login">&nbsp;</div> <!-- mantém espaço reservado -->
+        {% endif %}
+
+        <label class="label">Email:</label><br>
+        <input type="email" name="email" placeholder="Digite aqui o seu Email" required><br><br>
+
+        <label class="label">Senha:</label><br>
+        <input type="password" name="senha" placeholder="Digite aqui a sua senha" required><br><br><br>
+
+        <button type="submit">Entrar</button>
+
+        <p class="subtitulo-login">Novo por aqui? <a href="/cadastro">Cadastre-se!</a></p>
+    </form>
+</body>
+</html>
