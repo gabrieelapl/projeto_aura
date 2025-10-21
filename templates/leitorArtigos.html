@@ -3,19 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <link rel="stylesheet" href="../static/css/styleLeitorArtigos.css" type="text/css">
   <title>Aura</title>
 </head>
 <body>
 
-  <h1>Leitor de Artigos</h1>
-  <h2>Revisão Sistemática de Artigos Científicos</h2>
+    <div class="container">
+        <h1>Leitor de Artigos</h1>
+        <p class="subtitle">Revisão Sistemática de Artigos Científicos</p>
+        
+        <div class="divider"></div>
+        
+        <h2>Selecione um arquivo</h2>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📄</div>
+            <p class="upload-text">Clique ou arraste e solte o arquivo aqui</p>
+            <p class="upload-hint">Formatos suportados: PDF, DOC, DOCX</p>
+            <input type="file" class="file-input" id="fileInput" accept=".pdf,.doc,.docx">
+        </div>
+        
+        <div class="file-info" id="fileInfo">
+            Arquivo selecionado: <span id="fileName">Nenhum arquivo selecionado</span>
+        </div>
+        
+        <p class="footer-note">Os jornais e outros cursos avistados para resumir o artigo.</p>
+    </div>
 
-  <div class="upload-box">
-    <img src="imgs/arquivo.png" alt="Ícone de upload">
-    <a href="#" class="btn-upload">Selecione um arquivo</a>
-    <p>Ou arraste e solte o arquivo aqui para resumir o artigo</p>
-  </div>
-
+    <script src="../js/script.js"></script>
 </body>
 </html>

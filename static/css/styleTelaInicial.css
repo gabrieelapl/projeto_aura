@@ -102,7 +102,7 @@ nav ul li a {
 
 .header {
   background-color: var(--roxo_vivo);
-  height: 550px;
+  height: 600px;
 }
 
 .header img {
@@ -180,20 +180,12 @@ nav ul li a {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.card a {
-  text-decoration: none !important;
-  color: inherit !important;
+/* Remove sublinhado de elementos dentro do card */
+.card h2,
+.card p,
+.card .icon {
+    text-decoration: none !important;
 }
-
-.card a:visited,
-.card a:hover,
-.card a:focus,
-.card a:active {
-  text-decoration: none !important;
-  color: inherit !important;
-  outline: none !important;
-}
-
 
 .icon {
   width: 60px;
@@ -314,6 +306,17 @@ section {
   margin-left: 1%;
 }
 
+#container img{
+    margin-top: 3%;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .sobre-nos-texto {
   font-size: 20px;
   font-family: "Tommy-Medium";
@@ -336,13 +339,7 @@ section {
 .texto-nome {
   color: #ffffff;
   font-family: "Tommy-Medium";
-  margin-top: 270px;
-}
-
-.texto-funcao {
-  color: #ffffff;
-  font-family: "Tommy-Light";
-  font-size: 15px;
+  margin-top: 300px;
 }
 
 .card-img {
