@@ -61,6 +61,7 @@ def cadastro():
 # Rota Gerar Resumo
 @app.route("/geraresumo", methods=["GET", "POST"])
 def geraresumo():
+    return render_template('geraresumo.html')
     # Aqui você pega os dados armazenados na sessão (ou usa valores padrão)
     pdf_url = session.get("uploaded_pdf", "/static/exemplo.pdf")  # PDF padrão
     resumo = session.get("resumo", "Aqui vai o resumo gerado automaticamente.")
@@ -159,5 +160,10 @@ def citacoes():
     return render_template("citacoes.html", total_citacoes=total_citacoes, referencias=referencias)
 
 
+@app.route('/leitorArtigos')
+def leitor_artigos():
+    return render_template('leitorArtigos.html') 
+
 if __name__ == "__main__":
     app.run(debug=True)
+    

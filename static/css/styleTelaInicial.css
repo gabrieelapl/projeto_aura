@@ -151,6 +151,49 @@ nav ul li a {
   text-align: center;
 }
 
+.cards-sobreAura {
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;  
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.card-sobreAura {
+    background-color: var(--branco);
+    border-radius: 12px;
+    padding: 35px 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    transition: all 0.3s ease;
+    flex: 0 0 300px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-sobreAura img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.card-sobreAura h3 {
+  font-size: 1.2rem;
+  color: var(--preto);
+  font-family: 'Tommy-Medium';
+  margin-bottom: 10px;
+}
+
+.card-sobreAura p {
+  font-size: 0.9rem;
+  color: var(--preto);
+  line-height: 1.5;
+  font-family: 'Tommy-Medium';
+}
+
 .txt1 {
   color: var(--roxo_escuro);
   font-family: "Tommy-Medium";
@@ -180,13 +223,6 @@ nav ul li a {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Remove sublinhado de elementos dentro do card */
-.card h2,
-.card p,
-.card .icon {
-    text-decoration: none !important;
-}
-
 .icon {
   width: 60px;
   height: 60px;
@@ -206,7 +242,7 @@ nav ul li a {
 .card h2 {
   margin: 10px 0;
   font-size: 1.2rem;
-  color: #000000;
+  color: var(--preto);
   font-family: "Tommy-Medium";
 }
 
@@ -219,7 +255,7 @@ nav ul li a {
 
 .card p {
   font-size: 0.95rem;
-  color: #000000;
+  color: var(--preto);
   line-height: 1.5;
   text-align: left;
   font-family: "Tommy-Medium";
@@ -261,6 +297,7 @@ section {
   text-align: justify;
   margin-bottom: 15px;
 }
+
 
 @media (max-width: 900px) {
   section {
