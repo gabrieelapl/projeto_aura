@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Gerar Resumo em Áudio</title>
-    <link rel="stylesheet" href="../static/css/styleaudio.css" type="text/css">
-</head>
-<body>
-    
+    <link
+      rel="stylesheet"
+      href="../static/css/styleaudio.css"
+      type="text/css"
+    />
+  </head>
+  <body>
     <!-- Formulário de login -->
     <form method="POST" action="/audio">
-        <h1 class="titulo-resumo">Ouvir Resumo em Áudio</h1>
-        <p class="subtitulo-resumo">Converta o resumo do artigo de pesquisa em formato de áudio para ouvir em qualquer lugar.</p> 
+      <h1 class="titulo-resumo">Ouvir Resumo em Áudio</h1>
+      <p class="subtitulo-resumo">
+        Converta o resumo do artigo de pesquisa em formato de áudio para ouvir
+        em qualquer lugar.
+      </p>
 
+      <!-- PDF Card -->
+      <div class="pdf-card">
+        <img
+          src="../static/imgs/pdf-icon.png"
+          alt="PDF Icon"
+          class="pdf-icon"
+        />
+        <p id="fileNameDisplay">Artigo-científico.pdf</p>
+        <span class="pdf-size">0,33 MB</span>
+        <a
+          href="{{ url_for('static', filename='pdf/artigocient.pdf') }}"
+          target="_blank"
+          class="btn-pdf"
+        >
+          Visualizar documento
+        </a>
+      </div>
 
-        <!-- PDF Card -->
-<div class="pdf-card">
-  <img src="../static/imgs/pdf-icon.png" alt="PDF Icon" class="pdf-icon">
-  <p>Artigo-científico.pdf</p>
-  <span class="pdf-size">0,33 MB</span>
-  <a href="{{ url_for('static', filename='pdf/artigocient.pdf') }}" target="_blank" class="btn-pdf">
-    Visualizar documento
-  </a>
-</div>
+      <div class="palavras-chaves">
+        <span class="keyword" onclick="escolherIdioma('pt')"
+          >Português (Brasil)</span
+        >
+        <span class="keyword" onclick="escolherIdioma('en')">Inglês (EUA)</span>
+      </div>
+      <br />
 
-       <div class="palavras-chaves">
-    <span class="keyword" onclick="escolherIdioma('pt')">Português (Brasil)</span>
-    <span class="keyword" onclick="escolherIdioma('en')">Inglês (EUA)</span>
-</div><br>
-
-    <div class="resumo">
+      <div class="resumo">
         <p>
-            Converta o resumo do artigo de pesquisa em formato de áudio para ouvir em qualquer lugar.
+          Converta o resumo do artigo de pesquisa em formato de áudio para ouvir
+          em qualquer lugar.
         </p>
 
         <!-- Player de áudio -->
-    <audio controls>
-        <source src="{{ audio_url }}" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-
-    </div>
-
-    
-
-
-        
+        <audio controls>
+          <source src="{{ audio_url }}" type="audio/mpeg" />
+          Seu navegador não suporta o elemento de áudio.
+        </audio>
+      </div>
     </form>
-</body>
+
+    <script>
+      const fileName = sessionStorage.getItem("uploadedFileName");
+      if (fileName) {
+        document.getElementById("fileNameDisplay").textContent = fileName;
+      }
+    </script>
+  </body>
 </html>

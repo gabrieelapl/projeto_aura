@@ -1,0 +1,247 @@
+:root {
+  --bg: #f2f2f2;
+  --card: #ffffff;
+  --accent: #5a2f7a; /* roxo */
+  --muted: #9aa0a6;
+  --success: #97df6e; /* botão verde */
+  --shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  --soft-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
+  --radius: 18px;
+  --container: 920px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 200hv;
+}
+body {
+  margin: 0;
+  font-family: 'Made Tommy Soft Medium', sans-serif;
+  background: linear-gradient(#f6f6f6, #f2f2f2);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  color: #222;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 920px;
+  margin-top: 10px;
+}
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--soft-shadow);
+  padding: 54px 56px 68px;
+  border: 1px solid #eee;
+}
+
+.form-center {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-change {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  background: transparent;
+  margin-bottom: 28px;
+  text-decoration: none;
+}
+
+form .label {
+  display: block;
+  text-align: left;
+  color: var(--muted);
+  margin: 25px 0 6px;
+  font-size: 14px;
+}
+
+/* Inputs with pill shape and soft inset shadow */
+.input,
+textarea {
+  width: 100%;
+  padding: 18px 22px;
+  border-radius: 32px;
+  border: 1px  #ccc;
+  background: #f6f6f6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+  font-size: 15px;
+  outline: none;
+  resize: none;
+}
+textarea {
+  height: 140px;
+  border-radius: 26px;
+  padding: 22px;
+}
+
+.actions {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+.save {
+  background: var(--success);
+  border: none;
+  padding: 16px 44px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(151, 223, 110, 0.28);
+}
+
+/* account info block (left aligned on wide) */
+.account {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  gap: 22px;
+  flex-direction: column;
+  align-items: stretch;
+}
+.info-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.info-item {
+  flex: 1;
+  min-width: 180px;
+}
+.info-item strong {
+  display: block;
+  margin-top: 6px;
+}
+
+/* histórico cards */
+.historico {
+  margin-top: 36px;
+}
+.categoria {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.artigo-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.artigo-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .artigo-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card {
+    padding: 36px;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (max-width: 640px) {
+  .navlinks {
+    display: none;
+  }
+  .wrap {
+    padding: 0 12px;
+  }
+  .card {
+    padding: 28px;
+  }
+  .artigo-list {
+    grid-template-columns: 1fr;
+  }
+  .avatar {
+    width: 84px;
+    height: 84px;
+  }
+  .input,
+  textarea {
+    padding: 14px;
+  }
+  .save {
+    width: 220px;
+  }
+}
+
+/* botão estilo pill, não achatado */
+.btn-custom {
+  display: inline-block; /* permite padding horizontal e sizing natural */
+  padding: 10px 26px; /* vertical 10px, horizontal 26px -> largura confortável */
+  min-width: 120px; /* garante largura mínima */
+  height: 44px; /* mantém altura consistente */
+  line-height: 22px; /* centraliza o texto verticalmente */
+  background-color: #98d96a;
+  color: #fff;
+  border: none;
+  border-radius: 999px; /* pill */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  text-decoration: none; /* se usar <a> */
+  text-align: center;
+}
+
+/* se quiser uma versão menor em telas pequenas */
+@media (max-width: 640px) {
+  .btn-custom {
+    padding: 8px 20px;
+    min-width: 100px;
+    font-size: 15px;
+  }
+}
+.subtitulo-cadastro {
+    font-family: 'Made Tommy Soft Medium', sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    color: rgba(38, 38, 38, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+}

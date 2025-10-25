@@ -159,10 +159,133 @@ def citacoes():
     
     return render_template("citacoes.html", total_citacoes=total_citacoes, referencias=referencias)
 
-
-@app.route('/leitorArtigos')
+# Leitor de artigos - GERAR RESUMO
+@app.route('/leitorArtigos-gerarResumo')
 def leitor_artigos():
-    return render_template('leitorArtigos.html') 
+    return render_template('leitorArtigos-gerarResumo.html') 
+
+# Leitor de artigos - ÁUDIO
+@app.route('/leitorArtigos-audio')
+def leitor_artigos_audio():
+    return render_template('leitorArtigos-audio.html') 
+
+# Leitor de artigos - SELECIONAR
+@app.route('/leitorArtigos-selecionar')
+def leitor_artigos_selecionar():
+    return render_template('leitorArtigos-selecionar.html') 
+
+# Leitor de artigos - PERGUNTAS
+@app.route('/leitorArtigos-perguntas')
+def leitor_artigos_perguntas():
+    return render_template('leitorArtigos-perguntas.html')
+
+# Leitor de artigos - CLASSIFICAR
+@app.route('/leitorArtigos-classificar')
+def leitor_artigos_classificar():
+    return render_template('leitorArtigos-classificar.html')
+
+# Leitor de artigos - CITAÇÕES
+@app.route('/leitorArtigos-citacoes')
+def leitor_artigos_citacoes():
+    return render_template('leitorArtigos-citacoes.html')
+
+#perfil
+@app.route("/perfil")
+def perfil():
+    # Busca sempre o primeiro usuário da tabela
+    cursor.execute("SELECT nome, email, bio FROM usuarios ORDER BY id ASC LIMIT 1")
+    usuario = cursor.fetchone()
+
+    if not usuario:
+        usuario = {"nome": "Usuário padrão", "email": "email@exemplo.com", "bio": "Bio não definida"}
+
+    return render_template("perfil.html", usuario=usuario)
+
+
+
+#/editarperfil
+@app.route("/editarperfil", methods=["GET", "POST"])
+def editarperfil():
+    # Pega o primeiro usuário válido
+    cursor.execute("SELECT id, nome, bio FROM usuarios ORDER BY id ASC LIMIT 1")
+    usuario = cursor.fetchone()
+
+    if not usuario:
+        return "Nenhum usuário encontrado no banco."
+
+    # Dependendo do cursor:
+    # Se dictionary=True:
+    user_id = usuario["id"]
+    # Se não, use: user_id = usuario[0]
+
+    if request.method == "POST":
+        novo_nome = request.form["nome"]
+        nova_bio = request.form["bio"]
+
+        cursor.execute(
+            "UPDATE usuarios SET nome=%s, bio=%s WHERE id=%s",
+            (novo_nome, nova_bio, user_id)
+        )
+        db.commit()
+
+        return redirect(url_for("perfil"))
+
+    return render_template("editarperfil.html", usuario=usuario)
+
+# Rota alterar senha
+@app.route("/alterarsenha", methods=["GET", "POST"])
+def alterarsenha():
+    # Pega o usuário logado na sessão ou o primeiro da tabela
+    user_id = session.get("user_id")
+    if not user_id:
+        cursor.execute("SELECT id FROM usuarios ORDER BY id ASC LIMIT 1")
+        usuario = cursor.fetchone()
+        if not usuario:
+            return render_template("alterarsenha.html", mensagem="Nenhum usuário encontrado no banco.")
+        # cursor retorna tupla ou dicionário
+        user_id = usuario[0] if isinstance(usuario, tuple) else usuario["id"]
+
+    if request.method == "POST":
+        confirmar_senha = request.form.get("confirmar_senha")  # apenas usamos esse campo
+
+        try:
+            cursor.execute("UPDATE usuarios SET senha = %s WHERE id = %s", (confirmar_senha, user_id))
+            db.commit()
+            return render_template("alterarsenha.html", mensagem="Senha alterada com sucesso!")
+        except Exception as e:
+            db.rollback()
+            return render_template("alterarsenha.html", mensagem=f"Erro ao atualizar senha: {e}")
+
+    # GET -> mostra formulário
+    return render_template("alterarsenha.html")
+
+
+
+
+#/excluirconta
+@app.route("/excluirconta", methods=["POST"])
+def excluirconta():
+    try:
+        # Deleta o usuário com id = 1
+        cursor.execute("DELETE FROM usuarios WHERE id = %s", (1,))
+        db.commit()
+        # Limpa sessão apenas se existir
+        session.clear()
+        mensagem = "Conta excluída com sucesso!"
+    except Exception as e:
+        db.rollback()
+        mensagem = f"Erro ao excluir conta: {e}"
+
+    # Redireciona para a home ou mostra mensagem
+    return render_template("index.html", mensagem=mensagem)
+
+
+@app.route("/excluirhistorico", methods=["GET", "POST"])
+def excluirhistorico():
+    # Lógica para apagar histórico do usuário
+    # db.execute("DELETE FROM historico WHERE usuario_id = %s", (session['user_id'],))
+    # db.commit()
+    return redirect(url_for("perfil"))  # volta para perfil
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,326 @@
+:root {
+  --bg: #f2f2f2;
+  --card: #ffffff;
+  --accent: #5a2f7a; /* roxo */
+  --muted: #777;
+  --success: #8fc86f; /* botão verde */
+  --danger: #ff6060;
+  --radius: 14px;
+  --container: 920px;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 5%;
+  font-family: 'Made Tommy Soft Medium', sans-serif;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--container);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Card base */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  padding: 46px;
+  border: 1px solid #ddd;
+}
+
+/* Perfil topo */
+.perfil {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid #ddd;
+}
+
+.avatar {
+  width: 100px; /* largura do círculo */
+  height: 100px; /* altura do círculo */
+  border-radius: 50%; /* deixa circular */
+  overflow: hidden; /* corta a imagem que ultrapassa os limites */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 100%; /* ocupa toda a div */
+  height: 100%; /* ocupa toda a div */
+  object-fit: cover; /* mantém proporção e corta excesso */
+  object-position: center; /* centraliza a parte visível */
+  display: block; /* remove espaçamento abaixo da imagem */
+}
+
+.perfil-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.perfil-info h2 {
+  margin: 0;
+  color: #4f3673;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+}
+.perfil-info p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.perfil-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+button {
+  background-color: #98d96a;
+  color: white;
+  padding: 10px 0;
+  width: 20%;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 50%; /* responsivo: nunca ultrapassa 50% do form */
+}
+
+.btn-excluir {
+  background-color: #ef4444;
+  color: white;
+  padding: 10px 0;
+  width: 20%;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 50%; /* responsivo: nunca ultrapassa 50% do form */
+}
+
+.btn-excluir-stroke {
+  background-color: #fff;
+  color: #ef4444;
+  padding: 10px 0;
+  width: 20%;
+  border: 1.5px solid #ef4444;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  max-width: 50%; /* responsivo: nunca ultrapassa 50% do form */
+}
+
+/* Informações da conta */
+.info-header {
+  color: var(--accent);
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.info-sub {
+  color: #888;
+  margin-bottom: 18px;
+}
+
+.info-grid {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.info-item {
+  flex: 1;
+  min-width: 220px;
+}
+.info-item strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Histórico */
+.historico {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hist-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.hist-title {
+  color: var(--accent);
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.hist-search {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.search-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+}
+
+/* Item de artigo */
+.categoria {
+  color: var(--accent);
+  font-weight: 700;
+  margin-top: 6px;
+  font-size: 23px;
+}
+.artigo-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 35px;
+  margin-top: 10px;
+}
+.artigo-card h3 {
+  margin: 0;
+  font-size: 16px;
+  gap: 10px;
+}
+.artigo-meta {
+  color: #999;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 820px) {
+  .page {
+    padding: 0 6px;
+  }
+  .perfil {
+    align-items: flex-start;
+  }
+  .perfil-actions {
+    margin-left: auto;
+  }
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .perfil {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .perfil-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .perfil-info h2 {
+    font-size: 20px;
+  }
+  .hist-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hist-search {
+    order: 2;
+  }
+  .pdf-card {
+    flex-direction: row;
+  }
+  .pdf-right {
+    flex-shrink: 0;
+  }
+}
+
+.artigo-card-link {
+  text-decoration: none; /* remove underline */
+  color: inherit; /* mantém a cor do texto */
+  display: block; /* ocupa todo o espaço do card */
+  cursor: pointer; /* mostra que é clicável */
+}
+
+.artigo-card-link:hover .artigo-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* leve destaque no hover */
+  transform: translateY(-2px);
+  transition: all 0.3s;
+}
+
+
+/* Top navigation (as in image) */
+.topnav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 78px;
+  background: #f2f2f2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 36px;
+  z-index: 200;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo img {
+  height: 36px;
+}
+.navlinks {
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+}
+.navlinks a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* botão estilo pill, não achatado */
+.btn-custom {
+  display: inline-block; /* permite padding horizontal e sizing natural */
+  padding: 10px 26px; /* vertical 10px, horizontal 26px -> largura confortável */
+  min-width: 120px; /* garante largura mínima */
+  height: 44px; /* mantém altura consistente */
+  line-height: 22px; /* centraliza o texto verticalmente */
+  background-color: #98d96a;
+  color: #fff;
+  border: none;
+  border-radius: 999px; /* pill */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  text-decoration: none; /* se usar <a> */
+  text-align: center;
+}

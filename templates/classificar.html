@@ -14,7 +14,7 @@
     <!-- PDF Card -->
     <div class="pdf-card">
         <img src="../static/imgs/pdf-icon.png" alt="PDF Icon" class="pdf-icon">
-        <p>{{ pdf_nome }}</p>
+        <p id="fileNameDisplay">Artigo-científico.pdf</p>
         <span class="pdf-size">{{ pdf_tamanho }}</span>
         <a href="{{ pdf_url }}" target="_blank" class="btn-pdf">Visualizar documento</a>
     </div>
@@ -39,5 +39,12 @@
     </div>
 
 </main>
+
+    <script>
+      const fileName = sessionStorage.getItem("uploadedFileName");
+      if (fileName) {
+        document.getElementById("fileNameDisplay").textContent = fileName;
+      }
+    </script>
 </body>
 </html>

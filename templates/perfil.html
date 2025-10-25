@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil</title>
+  <link rel="stylesheet" href="../static/css/styleperfil.css">
+
+</head>
+<body>
+  <main class="page">
+    <!-- Perfil topo -->
+    <section class="card perfil">
+      <div class="avatar"><img src="../static/imgs/estudante.jpg"></div>
+        <div class="perfil-info">
+    <h2>{{ usuario.nome }}</h2>
+    <p>{{ usuario.email }}</p>
+    <p class="bio">{{ usuario.bio }}</p>
+    <a href="/editarperfil"><button>Editar perfil</button></a>
+</div>
+
+    </section>
+
+    <!-- Informações da conta -->
+    <section class="card">
+      <div class="info-header">Informações da conta</div>
+      <div class="info-sub">Gerencie os detalhes e a segurança da sua conta</div>
+
+      <div class="info-grid">
+        <div class="info-item">
+
+      <div class="info-item">
+  <small>Nome completo</small>
+  <strong>{{ usuario.nome }}</strong>
+
+  <small>E-mail</small>
+  <strong>{{ usuario.email }}</strong>
+
+  <small>Senha</small>
+  <strong id="password-mask">********</strong>
+
+
+  <small>Membro desde</small>
+  <strong>{{ usuario.membro_desde }}</strong>
+
+  <a href="/alterarsenha">
+    <button type="submit">Alterar senha</button>
+  </a>
+</div> <br>
+ 
+<form action="{{ url_for('excluirconta') }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir a conta?');">
+    <button type="submit" class="btn-excluir">Excluir Conta</button>
+</form>
+
+
+    </section>
+
+    <!-- Histórico do artigo -->
+    <section class="card historico">
+      <div class="hist-top">
+        <div>
+          <div class="hist-title">Histórico do artigo</div>
+          <div class="info-sub">Sua jornada de pesquisa por meio de artigos científicos</div>
+        </div>
+        <button type="submit" class="btn-excluir-stroke"
+          onclick="confirmarExclusao('historico')">Excluir histórico</button>
+        </div>
+      </div>
+
+      <div class="hist-search">
+        <input class="search-input" placeholder="Pesquisar artigos ou autores...">
+        <select style="padding:10px;border-radius:8px;border:1px solid #e6e6e6">
+          <option>Filtrar</option>
+        </select>
+      </div>
+
+      <div>
+        <div class="categoria">Inteligência Artificial</div>
+        <!-- cartões de artigo -->
+         <a href="/static/pdf/artigocient.pdf" target="_blank" class="artigo-card-link">
+        <div class="artigo-card">
+          <h3>Aplicações de aprendizado profundo na saúde</h3>
+          <small>Autores: Smith, J., Johnson, A.</small>
+          <div class="artigo-meta">Pesquisado em 9 de março de 2025</div>
+        </div>
+
+        <div class="artigo-card">
+          <h3>Aplicações de aprendizado profundo na saúde</h3>
+          <small>Autores: Smith, J., Johnson, A.</small>
+          <div class="artigo-meta">Pesquisado em 9 de março de 2025</div>
+        </div>
+
+        <div class="artigo-card">
+          <h3>Aplicações de aprendizado profundo na saúde</h3>
+          <small>Autores: Smith, J., Johnson, A.</small>
+          <div class="artigo-meta">Pesquisado em 9 de março de 2025</div>
+        </div>
+      </div>
+
+            <div>
+        <div class="categoria">Sustentabilidade</div>
+        
+        <div class="artigo-card">
+          <h3>Aplicações de aprendizado profundo na saúde</h3>
+          <small>Autores: Smith, J., Johnson, A.</small>
+          <div class="artigo-meta">Pesquisado em 9 de março de 2025</div>
+        </div>
+
+        <a href="/static/pdf/artigocient.pdf" target="_blank" class="artigo-card-link"></a>
+        <div class="artigo-card">
+          <h3>Aplicações de aprendizado profundo na saúde</h3>
+          <small>Autores: Smith, J., Johnson, A.</small>
+          <div class="artigo-meta">Pesquisado em 9 de março de 2025</div>
+        </div>
+      </div>
+
+      <div class="categoria">Educação</div>
+      <a href="/static/pdf/artigocient.pdf" target="_blank" class="artigo-card-link">
+
+        <div class="artigo-card">
+          <h3>Aplicações de aprendizado profundo na saúde</h3>
+          <small>Autores: Smith, J., Johnson, A.</small>
+          <div class="artigo-meta">Pesquisado em 9 de março de 2025</div>
+        </div>
+      </div>
+
+    </section>
+    <script>
+function confirmarExclusao(tipo) {
+    let mensagem = '';
+    if(tipo === 'conta') {
+        mensagem = 'Tem certeza que deseja excluir sua conta? Essa ação não pode ser desfeita!';
+    } else if(tipo === 'historico') {
+        mensagem = 'Tem certeza que deseja excluir todo o histórico?';
+    }
+
+    if(confirm(mensagem)) {
+        // Se o usuário confirmar, redireciona ou envia o formulário
+        if(tipo === 'conta') {
+            window.location.href = '/excluirconta'; // rota Flask
+        } else if(tipo === 'historico') {
+            window.location.href = '/excluirhistorico'; // rota Flask
+        }
+    }
+}
+</script>
+
+  </body>

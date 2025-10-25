@@ -17,7 +17,7 @@
 <div class="pdf-card">
   <div class="pdf-card-left">
     <img src="../static/imgs/pdf-icon.png" alt="PDF Icon" class="pdf-icon">
-    <p>Artigo-científico.pdf</p>
+    <p id="fileNameDisplay">Artigo-científico.pdf</p>
   </div>
   <div class="pdf-card-right">
     <span class="pdf-size">0,33 MB</span>
@@ -102,6 +102,13 @@
       }
     });
   });
+
+
+    const fileName = sessionStorage.getItem("uploadedFileName");
+    if (fileName) {
+      document.getElementById("fileNameDisplay").textContent = fileName;
+    }
+
 </script>
 
 

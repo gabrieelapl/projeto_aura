@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../static/css/styleLeitorArtigos.css"
+      type="text/css"
+    />
+    <title>AURA</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo">Leitor de Artigos</h1>
+      <h2>Revisão Sistemática de Artigos Científicos</h2>
+
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon"></div>
+        <a href="#" class="btn-upload">Selecione um arquivo</a>
+        <p class="upload-text">Ou arraste e solte o arquivo aqui para resumir o artigo</p>
+        <input
+          type="file"
+          class="file-input"
+          id="fileInput"
+          accept=".pdf,.doc,.docx"
+        />
+      </div>
+
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        if (file) {
+          // salva o nome do arquivo
+          sessionStorage.setItem("uploadedFileName", file.name);
+
+          // redireciona para a tela de áudio
+          window.location.href = "/perguntas";
+        }
+      });
+    </script>
+  </body>
+</html>
