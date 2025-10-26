@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../static/css/styleclassificar.css" type="text/css">
 </head>
 <body>
+    <a href="javascript:history.back()" class="back-arrow"></a>
 <main class="container">
 
     <h1 class="titulo">Classificar e Organizar</h1>
@@ -30,13 +31,15 @@
     </div>
     {% endfor %}
 
-    <!-- Tópicos Principais -->
-    <h2 class="subtitulo-topicos">Tópicos Principais</h2>
-    <div class="topicos-principais">
-        {% for topico in topicos_principais %}
-        <span class="topico">{{ topico }}</span>
-        {% endfor %}
-    </div>
+
+<!-- Tópicos Principais -->
+<h2 class="subtitulo-topicos">Tópicos Principais</h2>
+<div class="topicos-principais">
+    {% for topico in topicos_principais %}
+    <span class="topico">{{ topico }}</span>
+    {% endfor %}
+</div>
+
 
 </main>
 

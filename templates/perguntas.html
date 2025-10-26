@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../static/css/styleperguntas.css" type="text/css">
 </head>
 <body>
+  <a href="javascript:history.back()" class="back-arrow"></a>
   <main class="container">
 
     <form method="POST" action="/perguntas">
@@ -29,87 +30,41 @@
 
 
 
-    <!-- Perguntas -->
-    <section class="pergunta">
-      <h2>Qual é a principal contribuição deste artigo de pesquisa?</h2>
-      <ul>
-        <li>A) A principal contribuição é um algoritmo que reduz o tempo de treinamento de redes neurais profundas sem comprometer a performance do modelo de transformador em domínios especializados.</li>
-        <li>B) A proposta contribui com uma metodologia para melhorar a robustez de sistemas de recomendação baseados em preferências do usuário.</li>
-        <li>C) O estudo descreve um novo paradigma para integrar dados não estruturados em modelos preditivos de aprendizado de máquina.</li>
-        <li>D) O artigo oferece uma abordagem para melhorar a precisão de modelos de classificação em tarefas de reconhecimento de voz.</li>
-      </ul>
-    </section>
+<form method="POST" action="/perguntas">
+{% for p in perguntas %}
+<section class="pergunta" data-resposta-correta="{{ p.resposta_correta }}">
+  <h2>{{ p.pergunta }}</h2>
+  <ul>
+    {% for letra, alt in p.alternativas.items() %}
+    <li data-resposta="{{ letra }}">{{ letra }}) {{ alt }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
 
-    <section class="pergunta">
-      <h2>Como os resultados deste estudo impactam a área de conhecimento?</h2>
-      <ul>
-        <li>A) O estudo propõe um novo algoritmo de clustering adaptativo para melhorar a segmentação de grandes volumes de dados do modelo de transformador em domínios especializados.</li>
-        <li>B) A contribuição deste trabalho é uma abordagem novel de pré-processamento de dados para redes neurais em tarefas de visão computacional.</li>
-        <li>C) O artigo apresenta uma estratégia para melhorar a interpretação e a explicabilidade de modelos de aprendizado profundo.</li>
-        <li>D) A pesquisa oferece uma solução para otimizar o uso de recursos computacionais em tarefas de aprendizado supervisionado.</li>
-      </ul>
-    </section>
+  <button type="submit">Enviar respostas</button>
+</form>
 
-    <section class="pergunta">
-      <h2>Quais limitações o autor aponta em sua pesquisa?</h2>
-      <ul>
-        <li>A) A contribuição central é uma técnica para reduzir o viés em algoritmos de aprendizado automático aplicados em dados sensíveis.</li>
-        <li>B) O artigo propõe uma abordagem de otimização que melhora a precisão e a eficiência de modelos de tradução automática.</li>
-        <li>C) A principal inovação é o desenvolvimento de uma rede neural mais robusta para processamento de linguagem natural em contextos diversos.</li>
-        <li>D) A pesquisa introduz um novo método de regularização em redes neurais que aumenta a generalização do modelo.</li>
-      </ul>
-    </section>
-
-    <section class="pergunta">
-      <h2>Que metodologias foram usadas para coleta e análise dos dados?</h2>
-      <ul>
-        <li>A) O artigo oferece uma solução eficiente para melhorar a detecção de anomalias em grandes conjuntos de dados financeiros do modelo de transformador em domínios especializados.</li>
-        <li>B) A principal inovação é a introdução de um método híbrido que combina aprendizado supervisionado e não supervisionado.</li>
-        <li>C) A pesquisa apresenta um novo framework que melhora a escalabilidade de sistemas de recomendação baseados em aprendizado de máquina.</li>
-        <li>D) O estudo descreve um modelo de rede neural capaz de prever tendências de mercado com base em dados históricos.</li>
-      </ul>
-    </section>
-
-    <section class="pergunta">
-      <h2>Como os achados podem ser aplicados na prática profissional?</h2>
-      <ul>
-        <li>A) A principal contribuição é um mecanismo de atenção modificado que melhora o desempenho do modelo de transformador em domínios especializados.</li>
-        <li>B) A proposta contribui com uma nova abordagem para aumentar a precisão na classificação de grandes volumes de dados em tempo real.</li>
-        <li>C) Este estudo apresenta um algoritmo inovador que otimiza o desempenho de redes neurais convolucionais em tarefas de reconhecimento de imagem.</li>
-        <li>D) A pesquisa propõe uma técnica avançada de aprendizado profundo, reduzindo a complexidade computacional em modelos preditivos.</li>
-      </ul>
-    </section>
-
-    <script>
+<script>
   const itens = document.querySelectorAll('.pergunta ul li');
 
   itens.forEach(item => {
     item.addEventListener('click', () => {
-      // Remove qualquer classe de cor dos itens da mesma lista
       const lista = item.parentElement.querySelectorAll('li');
-      lista.forEach(li => {
-        li.classList.remove('verde');
-        li.classList.remove('vermelho');
-      });
+      lista.forEach(li => li.classList.remove('verde', 'vermelho'));
 
-      // Verifica a letra da alternativa (primeira letra antes de ")")
-      const letra = item.textContent.trim().charAt(0).toUpperCase();
+      const letra = item.dataset.resposta.toUpperCase();
+      const respostaCorreta = item.closest('section').dataset.respostaCorreta;
 
-      if(letra === 'B') {
+      if (letra === respostaCorreta) {
         item.classList.add('verde');
-      } else if(letra === 'D') {
+      } else {
         item.classList.add('vermelho');
       }
     });
   });
-
-
-    const fileName = sessionStorage.getItem("uploadedFileName");
-    if (fileName) {
-      document.getElementById("fileNameDisplay").textContent = fileName;
-    }
-
 </script>
+
 
 
   </main>

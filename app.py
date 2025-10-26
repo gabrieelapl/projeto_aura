@@ -61,18 +61,44 @@ def cadastro():
 # Rota Gerar Resumo
 @app.route("/geraresumo", methods=["GET", "POST"])
 def geraresumo():
-    return render_template('geraresumo.html')
-    # Aqui você pega os dados armazenados na sessão (ou usa valores padrão)
-    pdf_url = session.get("uploaded_pdf", "/static/exemplo.pdf")  # PDF padrão
-    resumo = session.get("resumo", "Aqui vai o resumo gerado automaticamente.")
-    pontos_chave = session.get("pontos_chave", [
-        "Ponto chave 1",
-        "Ponto chave 2",
-        "Ponto chave 3"
-    ])
-    
-    # Renderiza o template passando os dados
-    return render_template("geraresumo.html", pdf_url=pdf_url, resumo=resumo, pontos_chave=pontos_chave)
+    """
+    Busca o primeiro artigo disponível na tabela 'artigos' e passa
+    'resumo' e 'palavras_chave' para o template.
+    Não altera o design do template.
+    """
+    try:
+        # Buscar o primeiro artigo (ou ajuste WHERE/ORDER conforme precisar)
+        cursor.execute("SELECT id, titulo, resumo, palavras_chave FROM artigos ORDER BY id ASC LIMIT 1")
+        artigo = cursor.fetchone()
+    except Exception as e:
+        # Em caso de erro no DB, mantém valores padrão (para não quebrar o layout)
+        artigo = None
+        print("Erro ao buscar artigo:", e)
+
+    if artigo:
+        # Se cursor retorna dicionário:
+        try:
+            resumo = artigo.get("resumo", "")
+            palavras_chave_raw = artigo.get("palavras_chave", "")
+        except Exception:
+            # se for tupla (cursor padrão), adaptar índices:
+            resumo = artigo[2] if len(artigo) > 2 else ""
+            palavras_chave_raw = artigo[3] if len(artigo) > 3 else ""
+    else:
+        # valores padrão (não altera design)
+        resumo = "Aqui vai o resumo gerado automaticamente."
+        palavras_chave_raw = "PLN,Revisão Sistemática,Educação,ODS"
+
+    # transformando em lista para facilitar o template (se o template espera spans, isso ajuda)
+    palavras_chave = [kw.strip() for kw in (palavras_chave_raw or "").split(",") if kw.strip()]
+
+    # Passa as variáveis para o template sem mudar nenhuma marcação HTML
+    return render_template(
+        'geraresumo.html',
+        resumo=resumo,
+        palavras_chave=palavras_chave
+    )
+
 
     # Rota para página de áudio
 @app.route("/audio", methods=["GET"])
@@ -82,82 +108,131 @@ def audio():
     audio_url = session.get("audio_url", "/static/audio/exemplo.mp3")  # exemplo de áudio
     return render_template("audio.html", pdf_url=pdf_url, audio_url=audio_url)
 
+#selecionarresumo
 @app.route('/selecionar', methods=['GET', 'POST'])
 def selecionar_resumo():
-    # Pegando valores da sessão ou definindo valores padrão
-    pdf_url = session.get("uploaded_pdf", "/static/pdf/artigocient.pdf")
-    resumo = session.get("resumo", "Aqui vai o resumo gerado automaticamente.")
-    pontos_chave = session.get("pontos_chave", ["Ponto chave 1", "Ponto chave 2", "Ponto chave 3"])
+    try:
+        cursor.execute("""
+            SELECT sr.resumo, sr.palavras_chave 
+            FROM selecionar_resumo sr
+            ORDER BY sr.id ASC
+            LIMIT 1
+        """)
+        resultado = cursor.fetchone()
+    except Exception as e:
+        print("Erro ao buscar resumo selecionável:", e)
+        resultado = None
 
-    if request.method == 'POST':
-        # processar algo
-        return "Resumo processado!"
+    if resultado:
+        try:
+            resumo = resultado.get("resumo", "")
+            palavras_chave_raw = resultado.get("palavras_chave", "")
+        except Exception:
+            resumo = resultado[0] if len(resultado) > 0 else ""
+            palavras_chave_raw = resultado[1] if len(resultado) > 1 else ""
+    else:
+        resumo = "Resumo padrão de exemplo."
+        palavras_chave_raw = "Exemplo,Resumo,PLN"
 
-    return render_template('selecionar.html', pdf_url=pdf_url, resumo=resumo, pontos_chave=pontos_chave)
+    palavras_chave = [kw.strip() for kw in (palavras_chave_raw or "").split(",") if kw.strip()]
+
+    return render_template('selecionar.html', resumo=resumo, palavras_chave=palavras_chave)
+
 
 # Rota Perguntas
 @app.route("/perguntas", methods=["GET", "POST"])
 def perguntas():
     if request.method == "POST":
-        # Aqui você pode processar as respostas das perguntas, salvar no banco, etc.
-        resposta_usuario = request.form.get("resposta")  
-        # Exemplo: salvar na sessão
-        session["resposta"] = resposta_usuario
-        return redirect(url_for("index"))  # depois redireciona para a home ou outra página
-    
-    # GET -> apenas exibe a página
-    return render_template("perguntas.html")
+        respostas = request.form.getlist("resposta")  # lista de respostas do usuário
+        session["respostas_usuario"] = respostas
+        return redirect(url_for("index"))
 
+    # Pega todas as perguntas do artigo 1
+    cursor.execute("SELECT * FROM perguntas WHERE artigo_id=%s ORDER BY id ASC", (1,))
+    perguntas_db = cursor.fetchall()
+
+    perguntas_formatadas = []
+    for p in perguntas_db:
+        try:
+            # cursor retorna dict
+            perguntas_formatadas.append({
+                "id": p["id"],
+                "pergunta": p["pergunta"],
+                "alternativas": {
+                    "A": p["alternativa_a"],
+                    "B": p["alternativa_b"],
+                    "C": p["alternativa_c"],
+                    "D": p["alternativa_d"]
+                },
+                "resposta_correta": p["resposta_correta"]
+            })
+        except Exception:
+            # cursor retorna tupla
+            perguntas_formatadas.append({
+                "id": p[0],
+                "pergunta": p[2],
+                "alternativas": {
+                    "A": p[3],
+                    "B": p[4],
+                    "C": p[5],
+                    "D": p[6]
+                },
+                "resposta_correta": p[7]
+            })
+
+    return render_template("perguntas.html", perguntas=perguntas_formatadas)
+
+
+#classificar
 @app.route("/classificar", methods=["GET", "POST"])
 def classificar():
-    # Dados de exemplo; você pode substituir por valores reais
-    pdf_url = session.get("uploaded_pdf", "/static/pdf/artigocient.pdf")
-    pdf_nome = "Artigo-científico.pdf"
-    pdf_tamanho = "0,33 MB"
-    
+    # Buscar artigo (opcional)
+    cursor.execute("SELECT titulo, resumo FROM artigos ORDER BY id ASC LIMIT 1")
+    artigo = cursor.fetchone()
+
+    # Buscar tópicos principais
+    cursor.execute("SELECT topico FROM topicos_principais WHERE artigo_id=%s", (1,))
+    resultado = cursor.fetchall()
+    topicos_principais = [r["topico"] if isinstance(r, dict) else r[0] for r in resultado]
+
     categorias = [
         {"nome": "Aprendizado de máquina", "percent": 60},
         {"nome": "Processamento de Linguagem Natural", "percent": 50},
         {"nome": "Inteligência artificial", "percent": 40},
         {"nome": "Linguística Computacional", "percent": 30},
     ]
-    
-    topicos_principais = [
-        "Introduz um mecanismo de atenção modificado",
-        "Demonstra uma melhoria de 15% em relação aos métodos SOTA",
-        "Fornece um procedimento de treinamento mais eficiente",
-        "Apresenta desempenho robusto em vários idiomas",
-        "Inclui estudos extensivos de ablação"
-    ]
-    
+
     return render_template(
         "classificar.html",
-        pdf_url=pdf_url,
-        pdf_nome=pdf_nome,
-        pdf_tamanho=pdf_tamanho,
+        pdf_url="/static/pdf/artigocient.pdf",
+        pdf_tamanho="0,33 MB",
         categorias=categorias,
         topicos_principais=topicos_principais
     )
 
+
+#citacoes
 @app.route("/citacoes", methods=["GET", "POST"])
 def citacoes():
-    # Exemplo de dados de citações
-    total_citacoes = 10
-    referencias = [
-        
-        {"titulo": "Classificação de Imagens com Redes Neurais Convolucionais Profundas", "autores": "Krizhevsky, Sutskever e Hinton (2012)", "citado": 4},
-        {"titulo": "BERT: Pré-treinamento de Representações Profundas de Linguagem", "autores": "Devlin et al. (2018)", "citado": 3},
-        {"titulo": "Redes Residuais Profundas para Reconhecimento de Imagens", "autores": "He et al. (2016)", "citado": 2},
-        {"titulo": "Transformers: Uma Abordagem Geral para Modelagem de Sequência", "autores": "Wolf et al. (2020)", "citado": 2},
-        {"titulo": "GPT-3: Modelos de Linguagem São Aprendizes de Poucos Exemplos", "autores": "Brown et al. (2020)", "citado": 1},
-        {"titulo": "T5: Explorar a Transferência de Texto para Texto com um Modelo Unificado", "autores": "Raffel et al. (2020)", "citado": 1},
-        {"titulo": "XLNet: Superando o BERT com Modelagem Autoregressiva Generalizada", "autores": "Yang et al. (2019)", "citado": 1},
-        {"titulo": "Word2Vec: Eficiência de Vetores de Palavras de Grande Dimensão", "autores": "Mikolov et al. (2013)", "citado": 1},
-        {"titulo": "Atenção é Tudo que Você Precisa", "autores": "Vaswani et al. (2017)", "citado": 5},
-        {"titulo": "Classificação de Imagens com Redes Neurais Convolucionais Profundas", "autores": "Krizhevsky, Sutskever e Hinton (2012)", "citado": 4},
-    ]
-    
+    try:
+        cursor.execute("SELECT titulo, autores, citado FROM citacoes WHERE artigo_id=%s ORDER BY id ASC", (1,))
+        referencias_db = cursor.fetchall()
+        referencias = [
+            {
+                "titulo": r["titulo"] if isinstance(r, dict) else r[0],
+                "autores": r["autores"] if isinstance(r, dict) else r[1],
+                "citado": r["citado"] if isinstance(r, dict) else r[2]
+            }
+            for r in referencias_db
+        ]
+        total_citacoes = 10  # valor fixo
+    except Exception as e:
+        print("Erro ao buscar citações:", e)
+        referencias = []
+        total_citacoes = 0
+
     return render_template("citacoes.html", total_citacoes=total_citacoes, referencias=referencias)
+
 
 # Leitor de artigos - GERAR RESUMO
 @app.route('/leitorArtigos-gerarResumo')
@@ -288,5 +363,5 @@ def excluirhistorico():
     return redirect(url_for("perfil"))  # volta para perfil
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    
+    app.run(debug=True, use_reloader=True)
+

@@ -10,6 +10,7 @@
     />
   </head>
   <body>
+    <a href="javascript:history.back()" class="back-arrow"></a>
     <!-- Formulário de login -->
     <form method="POST" action="/geraresumo">
       <h1 class="titulo-resumo">Selecionar resumo</h1>
@@ -39,35 +40,18 @@
       </div>
 
       <div class="resumo">
-        <h1 class="titulo-resumo">Resumo</h1>
-        <p>
-          Este artigo propõe o desenvolvimento de um sistema orientado por
-          Processamento de Linguagem Natural (PLN) para auxílio na realização de
-          Revisões Sistemáticas da Literatura (RSL), com foco no contexto
-          educacional. Partindo dos desafios enfrentados por estudantes do
-          ensino superior na compreensão de literatura acadêmica e na aplicação
-          de metodologias de revisão sistemática, o estudo identifica uma lacuna
-          nas ferramentas existentes: a priorização da eficiência técnica em
-          detrimento de aspectos pedagógicos. O sistema proposto integra
-          funcionalidades como glossário de termos técnicos, resumos automáticos
-          e análise textual mediante técnicas de PLN. Alinhado aos Objetivos de
-          Desenvolvimento Sustentável (ODS) 4 (Educação de Qualidade) e 10
-          (Redução das Desigualdades), o projeto visa não apenas automatizar
-          tarefas, mas promover uma compreensão mais profunda e crítica por
-          parte dos usuários, oferecendo uma abordagem inovadora que combina
-          eficiência computacional com mediação educativa.
-        </p>
+  <h1 class="titulo-resumo">Resumo</h1>
+  <p>{{ resumo }}</p>
 
-        <h1 class="titulo-resumo">Palavras-Chave</h1>
+  <h1 class="titulo-resumo">Palavras-Chave</h1>
+  <div class="palavras-chaves">
+    {% for kw in palavras_chave %}
+      <span class="keyword">{{ kw }}</span>
+    {% endfor %}
+  </div>
+</div>
 
-        <div class="palavras-chaves">
-          <span class="keyword">Revisão Sistemática</span>
-          <span class="keyword">Processamento de Linguagem Natural</span>
-          <span class="keyword">Inteligência Artificial</span>
-          <span class="keyword">Educação Superior</span>
-          <span class="keyword">Aprendizado Ativo</span>
-        </div>
-      </div>
+
     </form>
 
     <script>

@@ -114,3 +114,20 @@ body {
     .descricao { font-size: 14px; }
     .pdf-icon { width: 30px; height: 30px; }
 }
+
+.back-arrow {
+    position: fixed;
+    top: 21px;      /* distância do topo */
+    left: 17px;     /* distância da esquerda */
+    width: 15px;    /* tamanho da seta */
+    height: 15px;
+    border-left: 3px solid #000;   /* cria a linha esquerda do V */
+    border-bottom: 3px solid #000; /* cria a linha inferior do V */
+    transform: rotate(45deg);      /* gira para formar a seta "<" */
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    border-color: #555; /* muda cor ao passar o mouse */
+}

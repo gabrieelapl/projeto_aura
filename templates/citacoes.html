@@ -10,6 +10,7 @@
     />
   </head>
   <body>
+    <a href="javascript:history.back()" class="back-arrow"></a>
     <form>
       <h1 class="titulo-resumo">Analisar Citações</h1>
       <p class="subtitulo-resumo">
@@ -44,14 +45,15 @@
         <p class="total-citacoes">{{ total_citacoes }}</p>
 
         {% for ref in referencias %}
-        <div class="referencia">
-          <div class="referencia-info">
-            <strong>{{ ref.titulo }}</strong>
-            <span>{{ ref.autores }}</span>
-          </div>
-          <span class="badge-citacao">Citado {{ ref.citado }}x</span>
-        </div>
-        {% endfor %}
+<div class="referencia">
+  <div class="referencia-info">
+    <strong>{{ ref.titulo }}</strong>
+    <span>{{ ref.autores }}</span>
+  </div>
+  <span class="badge-citacao">Citado {{ ref.citado }}x</span>
+</div>
+{% endfor %}
+
       </div>
     </form>
 
