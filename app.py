@@ -265,16 +265,66 @@ def leitor_artigos_citacoes():
     return render_template('leitorArtigos-citacoes.html')
 
 #perfil
+from datetime import datetime
+
 @app.route("/perfil")
 def perfil():
-    # Busca sempre o primeiro usuário da tabela
-    cursor.execute("SELECT nome, email, bio FROM usuarios ORDER BY id ASC LIMIT 1")
-    usuario = cursor.fetchone()
+    # Busca sempre o primeiro usuário da tabela, incluindo membro_desde
+    try:
+        cursor.execute("SELECT nome, email, bio, membro_desde FROM usuarios ORDER BY id ASC LIMIT 1")
+        usuario = cursor.fetchone()
+    except Exception as e:
+        print("Erro ao buscar usuário:", e)
+        usuario = None
 
+    # Se não achar usuário, usa valores padrão
     if not usuario:
-        usuario = {"nome": "Usuário padrão", "email": "email@exemplo.com", "bio": "Bio não definida"}
+        usuario = {
+            "nome": "Usuário padrão",
+            "email": "email@exemplo.com",
+            "bio": "Bio não definida",
+            "membro_desde": "—"
+        }
+    else:
+        # Se o cursor retorna dicionário (dict-like)
+        if isinstance(usuario, dict):
+            md = usuario.get("membro_desde")
+        else:
+            # cursor retorna tupla -> índice 3 é membro_desde conforme SELECT
+            md = usuario[3] if len(usuario) > 3 else None
+
+        # Normalizar membro_desde para string legível
+        if md is None:
+            membro_str = "—"
+        else:
+            # Se já for string (alguns drivers retornam str), tentamos parsear, senão formatamos se for datetime
+            if isinstance(md, str):
+                # tenta converter "YYYY-MM-DD HH:MM:SS" para datetime, caso falhe mantém a string
+                try:
+                    dt = datetime.strptime(md.split(".")[0], "%Y-%m-%d %H:%M:%S")
+                    membro_str = dt.strftime("%d/%m/%Y")  # ex: 09/03/2025
+                except Exception:
+                    membro_str = md
+            elif isinstance(md, datetime):
+                membro_str = md.strftime("%d/%m/%Y")
+            else:
+                # fallback
+                membro_str = str(md)
+
+        # Recria objeto usuario no formato dict que o template espera
+        if isinstance(usuario, dict):
+            usuario["membro_desde"] = membro_str
+        else:
+            # transform tupla -> dict (nome, email, bio, membro_desde)
+            usuario = {
+                "nome": usuario[0],
+                "email": usuario[1],
+                "bio": usuario[2],
+                "membro_desde": membro_str
+            }
 
     return render_template("perfil.html", usuario=usuario)
+
 
 
 
