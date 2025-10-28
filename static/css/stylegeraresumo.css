@@ -1,225 +1,229 @@
-/* ========================= */
-/* BASE RESPONSIVA            */
-/* ========================= */
 body {
-    font-family: "Made Tommy", Arial, sans-serif;
-    background-color: #F2F2F2;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 0;
-    min-height: 100vh;
-    padding: 50px 0;
-    overflow-y: auto;
+  font-family: "Made Tommy", Arial, sans-serif;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  min-height: 100vh;
+  padding: 50px 0;
+  overflow-y: auto;
 }
 
 @font-face {
-    font-family: 'Made Tommy';
-    src: url("{{ url_for('static', filename='fonts/MadeTommy-Regular.ttf') }}") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Made Tommy";
+  src: url("{{ url_for('static', filename='fonts/MadeTommy-Regular.ttf') }}")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 form {
-    background-color: #fff;
-    padding: 50px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 1158px;
-    text-align: center;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1158px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ========================= */
-/* PDF CARD E RESUMO          */
-/* ========================= */
-.pdf-card, .resumo {
-    width: 100%;
-    max-width: 850px; /* mesma largura para ambos */
-    box-sizing: border-box;
+.pdf-card,
+.resumo {
+  width: 100%;
+  max-width: 850px; /* mesma largura para ambos */
+  box-sizing: border-box;
 }
 
 .pdf-card {
-    background: #f2f2f2;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    flex-wrap: wrap;
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
 }
 
-/* ========================= */
-/* PDF CARD                  */
-/* ========================= */
 .pdf-card {
-    background: #f2f2f2;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* separa lado esquerdo e direito */
-    margin-bottom: 30px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    flex-wrap: wrap;
-    gap: 10px;
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa lado esquerdo e direito */
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Lado esquerdo */
 .pdf-card-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-grow: 1; /* empurra lado direito para borda */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1; /* empurra lado direito para borda */
 }
 
 .pdf-card-left img.pdf-icon {
-    width: 35px;
-    height: 35px;
-    flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
 }
 
 .pdf-card-left p {
-    margin: 0;
-    font-weight: 500;
-    word-break: break-word;
+  margin: 0;
+  font-weight: 500;
+  word-break: break-word;
 }
 
-/* Lado direito */
 .pdf-card-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .pdf-size {
-    font-size: 14px;
-    color: #777;
+  font-size: 14px;
+  color: #777;
 }
 
 .btn-pdf {
-    background: #f0f0f0;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
-    color: #000;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
 }
 
 .btn-pdf:hover {
-    background: #e5e5e5;
+  background: #e5e5e5;
 }
 
-
 .resumo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: #F2F2F2;
-    padding: 10px 20px;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 10px;
-    margin-top: 20px;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: left;
 }
 
 .keyword {
-    display: inline-block;
-    background-color: #fff;
-    color: #000;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin: 5px 5px 5px 0;
-    font-size: 14px;
-    border: 1px solid rgba(0,0,0,0.1);
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin: 5px 5px 5px 0;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .palavras-chaves {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/* ========================= */
-/* TITULOS                   */
-/* ========================= */
 .titulo-resumo {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .subtitulo-resumo {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 25px;
-    text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-/* ========================= */
-/* RESPONSIVO                */
-/* ========================= */
 @media (max-width: 1024px) {
-    form {
-        width: 80%;
-        padding: 40px;
-    }
-    .pdf-card, .resumo {
-        max-width: 700px; /* mesma largura */
-    }
+  form {
+    width: 80%;
+    padding: 40px;
+  }
+  .pdf-card,
+  .resumo {
+    max-width: 700px; /* mesma largura */
+  }
 }
 
 @media (max-width: 768px) {
-    form {
-        width: 90%;
-        padding: 30px;
-    }
-    .pdf-card, .resumo {
-        max-width: 600px; /* mesma largura */
-    }
-    .titulo-resumo { font-size: 22px; }
-    .subtitulo-resumo { font-size: 14px; }
-    .pdf-icon { width: 35px; height: 35px; }
+  form {
+    width: 90%;
+    padding: 30px;
+  }
+  .pdf-card,
+  .resumo {
+    max-width: 600px; /* mesma largura */
+  }
+  .titulo-resumo {
+    font-size: 22px;
+  }
+  .subtitulo-resumo {
+    font-size: 14px;
+  }
+  .pdf-icon {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 @media (max-width: 480px) {
-    form {
-        width: 95%;
-        padding: 20px;
-    }
-    .pdf-card, .resumo {
-        max-width: 100%; /* mesma largura */
-    }
-    .titulo-resumo { font-size: 20px; }
-    .subtitulo-resumo { font-size: 12px; }
-    .pdf-icon { width: 30px; height: 30px; }
-    .keyword { font-size: 12px; padding: 4px 10px; }
+  form {
+    width: 95%;
+    padding: 20px;
+  }
+  .pdf-card,
+  .resumo {
+    max-width: 100%; /* mesma largura */
+  }
+  .titulo-resumo {
+    font-size: 20px;
+  }
+  .subtitulo-resumo {
+    font-size: 12px;
+  }
+  .pdf-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .keyword {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
 }
 
 .back-arrow {
-    position: fixed;
-    top: 21px;      /* distância do topo */
-    left: 17px;     /* distância da esquerda */
-    width: 15px;    /* tamanho da seta */
-    height: 15px;
-    border-left: 3px solid #000;   /* cria a linha esquerda do V */
-    border-bottom: 3px solid #000; /* cria a linha inferior do V */
-    transform: rotate(45deg);      /* gira para formar a seta "<" */
-    cursor: pointer;
-    z-index: 1000;
+  position: fixed;
+  top: 21px; /* distância do topo */
+  left: 17px; /* distância da esquerda */
+  width: 15px; /* tamanho da seta */
+  height: 15px;
+  border-left: 3px solid #000; /* cria a linha esquerda do V */
+  border-bottom: 3px solid #000; /* cria a linha inferior do V */
+  transform: rotate(45deg); /* gira para formar a seta "<" */
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .back-arrow:hover {
-    border-color: #555; /* muda cor ao passar o mouse */
+  border-color: #555; /* muda cor ao passar o mouse */
 }

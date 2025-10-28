@@ -152,25 +152,26 @@ nav ul li a {
 }
 
 .cards-sobreAura {
-    display: flex;
-    gap: 30px;
-    flex-wrap: nowrap;  
-    justify-content: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .card-sobreAura {
-    background-color: var(--branco);
-    border-radius: 12px;
-    padding: 35px 25px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    transition: all 0.3s ease;
-    flex: 0 0 300px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+  background-color: var(--branco);
+  border-radius: 12px;
+  padding: 35px 25px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  transition: all 0.3s ease;
+  flex: 0 0 300px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .card-sobreAura img {
@@ -183,7 +184,7 @@ nav ul li a {
 .card-sobreAura h3 {
   font-size: 1.2rem;
   color: var(--preto);
-  font-family: 'Tommy-Medium';
+  font-family: "Tommy-Medium";
   margin-bottom: 10px;
 }
 
@@ -191,7 +192,7 @@ nav ul li a {
   font-size: 0.9rem;
   color: var(--preto);
   line-height: 1.5;
-  font-family: 'Tommy-Medium';
+  font-family: "Tommy-Medium";
 }
 
 .txt1 {
@@ -298,7 +299,6 @@ section {
   margin-bottom: 15px;
 }
 
-
 @media (max-width: 900px) {
   section {
     flex-direction: column;
@@ -343,15 +343,15 @@ section {
   margin-left: 1%;
 }
 
-#container img{
-    margin-top: 3%;
+#container img {
+  margin-top: 3%;
 }
 
-#container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .sobre-nos-texto {

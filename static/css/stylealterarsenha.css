@@ -1,24 +1,27 @@
 :root {
   --bg: #f2f2f2;
   --card: #ffffff;
-  --accent: #5a2f7a; /* roxo */
+  --accent: #5a2f7a;
   --muted: #9aa0a6;
-  --success: #97df6e; /* botão verde */
+  --success: #97df6e;
   --shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
   --soft-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
   --radius: 18px;
   --container: 920px;
 }
+
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 200hv;
 }
+
 body {
   margin: 0;
-  font-family: 'Made Tommy Soft Medium', sans-serif;
+  font-family: "Made Tommy Soft Medium", sans-serif;
   background: linear-gradient(#f6f6f6, #f2f2f2);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,6 +36,7 @@ body {
   max-width: 920px;
   margin-top: 10px;
 }
+
 .card {
   background: var(--card);
   border-radius: 16px;
@@ -89,19 +93,19 @@ form .label {
   font-size: 14px;
 }
 
-/* Inputs with pill shape and soft inset shadow */
 .input,
 textarea {
   width: 100%;
   padding: 18px 22px;
   border-radius: 32px;
-  border: 1px  #ccc;
+  border: 1px #ccc;
   background: #f6f6f6;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   font-size: 15px;
   outline: none;
   resize: none;
 }
+
 textarea {
   height: 140px;
   border-radius: 26px;
@@ -113,6 +117,7 @@ textarea {
   display: flex;
   justify-content: center;
 }
+
 .save {
   background: var(--success);
   border: none;
@@ -125,7 +130,6 @@ textarea {
   box-shadow: 0 12px 24px rgba(151, 223, 110, 0.28);
 }
 
-/* account info block (left aligned on wide) */
 .account {
   margin-top: 40px;
   padding-top: 18px;
@@ -135,29 +139,33 @@ textarea {
   flex-direction: column;
   align-items: stretch;
 }
+
 .info-row {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
 }
+
 .info-item {
   flex: 1;
   min-width: 180px;
 }
+
 .info-item strong {
   display: block;
   margin-top: 6px;
 }
 
-/* histórico cards */
 .historico {
   margin-top: 36px;
 }
+
 .categoria {
   color: var(--accent);
   font-weight: 700;
   margin-bottom: 12px;
 }
+
 .artigo-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -171,7 +179,6 @@ textarea {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
 }
 
-/* responsive */
 @media (max-width: 900px) {
   .artigo-list {
     grid-template-columns: repeat(2, 1fr);
@@ -238,27 +245,27 @@ textarea {
   }
 }
 .subtitulo-cadastro {
-    font-family: 'Made Tommy Soft Medium', sans-serif;
-    font-weight: 200;
-    font-size: 16px;
-    color: rgba(38, 38, 38, 0.5);
-    text-align: center;
-    margin-bottom: 20px;
+  font-family: "Made Tommy Soft Medium", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  color: rgba(38, 38, 38, 0.5);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .back-arrow {
-    position: fixed;
-    top: 21px;      /* distância do topo */
-    left: 17px;     /* distância da esquerda */
-    width: 15px;    /* tamanho da seta */
-    height: 15px;
-    border-left: 3px solid #000;   /* cria a linha esquerda do V */
-    border-bottom: 3px solid #000; /* cria a linha inferior do V */
-    transform: rotate(45deg);      /* gira para formar a seta "<" */
-    cursor: pointer;
-    z-index: 1000;
+  position: fixed;
+  top: 21px; /* distância do topo */
+  left: 17px; /* distância da esquerda */
+  width: 15px; /* tamanho da seta */
+  height: 15px;
+  border-left: 3px solid #000; /* cria a linha esquerda do V */
+  border-bottom: 3px solid #000; /* cria a linha inferior do V */
+  transform: rotate(45deg); /* gira para formar a seta "<" */
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .back-arrow:hover {
-    border-color: #555; /* muda cor ao passar o mouse */
+  border-color: #555; /* muda cor ao passar o mouse */
 }

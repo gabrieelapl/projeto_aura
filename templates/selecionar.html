@@ -40,18 +40,16 @@
       </div>
 
       <div class="resumo">
-  <h1 class="titulo-resumo">Resumo</h1>
-  <p>{{ resumo }}</p>
+        <h1 class="titulo-resumo">Resumo</h1>
+        <p>{{ resumo }}</p>
 
-  <h1 class="titulo-resumo">Palavras-Chave</h1>
-  <div class="palavras-chaves">
-    {% for kw in palavras_chave %}
-      <span class="keyword">{{ kw }}</span>
-    {% endfor %}
-  </div>
-</div>
-
-
+        <h1 class="titulo-resumo">Palavras-Chave</h1>
+        <div class="palavras-chaves">
+          {% for kw in palavras_chave %}
+          <span class="keyword">{{ kw }}</span>
+          {% endfor %}
+        </div>
+      </div>
     </form>
 
     <script>

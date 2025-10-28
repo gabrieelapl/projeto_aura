@@ -14,7 +14,7 @@
 }
 body {
   margin: 5%;
-  font-family: 'Made Tommy Soft Medium', sans-serif;
+  font-family: "Made Tommy Soft Medium", sans-serif;
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,7 +40,6 @@ body {
   border: 1px solid #ddd;
 }
 
-/* Perfil topo */
 .perfil {
   display: flex;
   gap: 20px;
@@ -269,7 +268,6 @@ button {
   transition: all 0.3s;
 }
 
-
 /* Top navigation (as in image) */
 .topnav {
   position: fixed;
@@ -278,7 +276,7 @@ button {
   top: 0;
   height: 78px;
   background: #f2f2f2;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 24px;
@@ -326,18 +324,18 @@ button {
 }
 
 .back-arrow {
-    position: fixed;
-    top: 21px;      /* distância do topo */
-    left: 17px;     /* distância da esquerda */
-    width: 15px;    /* tamanho da seta */
-    height: 15px;
-    border-left: 3px solid #000;   /* cria a linha esquerda do V */
-    border-bottom: 3px solid #000; /* cria a linha inferior do V */
-    transform: rotate(45deg);      /* gira para formar a seta "<" */
-    cursor: pointer;
-    z-index: 1000;
+  position: fixed;
+  top: 21px; /* distância do topo */
+  left: 17px; /* distância da esquerda */
+  width: 15px; /* tamanho da seta */
+  height: 15px;
+  border-left: 3px solid #000; /* cria a linha esquerda do V */
+  border-bottom: 3px solid #000; /* cria a linha inferior do V */
+  transform: rotate(45deg); /* gira para formar a seta "<" */
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .back-arrow:hover {
-    border-color: #555; /* muda cor ao passar o mouse */
+  border-color: #555; /* muda cor ao passar o mouse */
 }

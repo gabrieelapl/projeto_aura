@@ -45,15 +45,14 @@
         <p class="total-citacoes">{{ total_citacoes }}</p>
 
         {% for ref in referencias %}
-<div class="referencia">
-  <div class="referencia-info">
-    <strong>{{ ref.titulo }}</strong>
-    <span>{{ ref.autores }}</span>
-  </div>
-  <span class="badge-citacao">Citado {{ ref.citado }}x</span>
-</div>
-{% endfor %}
-
+        <div class="referencia">
+          <div class="referencia-info">
+            <strong>{{ ref.titulo }}</strong>
+            <span>{{ ref.autores }}</span>
+          </div>
+          <span class="badge-citacao">Citado {{ ref.citado }}x</span>
+        </div>
+        {% endfor %}
       </div>
     </form>
 

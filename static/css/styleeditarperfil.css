@@ -18,7 +18,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: 'Made Tommy Soft Medium', sans-serif;
+  font-family: "Made Tommy Soft Medium", sans-serif;
   background: linear-gradient(#f6f6f6, #f2f2f2);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -89,15 +89,14 @@ form .label {
   font-size: 14px;
 }
 
-/* Inputs with pill shape and soft inset shadow */
 .input,
 textarea {
   width: 100%;
   padding: 18px 22px;
   border-radius: 32px;
-  border: 1px  #ccc;
+  border: 1px #ccc;
   background: #f6f6f6;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   font-size: 15px;
   outline: none;
   resize: none;
@@ -125,7 +124,6 @@ textarea {
   box-shadow: 0 12px 24px rgba(151, 223, 110, 0.28);
 }
 
-/* account info block (left aligned on wide) */
 .account {
   margin-top: 40px;
   padding-top: 18px;
@@ -149,7 +147,6 @@ textarea {
   margin-top: 6px;
 }
 
-/* histórico cards */
 .historico {
   margin-top: 36px;
 }
@@ -171,7 +168,6 @@ textarea {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
 }
 
-/* responsive */
 @media (max-width: 900px) {
   .artigo-list {
     grid-template-columns: repeat(2, 1fr);
@@ -210,7 +206,6 @@ textarea {
   }
 }
 
-/* botão estilo pill, não achatado */
 .btn-custom {
   display: inline-block; /* permite padding horizontal e sizing natural */
   padding: 10px 26px; /* vertical 10px, horizontal 26px -> largura confortável */
@@ -229,7 +224,6 @@ textarea {
   text-align: center;
 }
 
-/* se quiser uma versão menor em telas pequenas */
 @media (max-width: 640px) {
   .btn-custom {
     padding: 8px 20px;
@@ -239,18 +233,18 @@ textarea {
 }
 
 .back-arrow {
-    position: fixed;
-    top: 21px;      /* distância do topo */
-    left: 17px;     /* distância da esquerda */
-    width: 15px;    /* tamanho da seta */
-    height: 15px;
-    border-left: 3px solid #000;   /* cria a linha esquerda do V */
-    border-bottom: 3px solid #000; /* cria a linha inferior do V */
-    transform: rotate(45deg);      /* gira para formar a seta "<" */
-    cursor: pointer;
-    z-index: 1000;
+  position: fixed;
+  top: 21px; /* distância do topo */
+  left: 17px; /* distância da esquerda */
+  width: 15px; /* tamanho da seta */
+  height: 15px;
+  border-left: 3px solid #000; /* cria a linha esquerda do V */
+  border-bottom: 3px solid #000; /* cria a linha inferior do V */
+  transform: rotate(45deg); /* gira para formar a seta "<" */
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .back-arrow:hover {
-    border-color: #555; /* muda cor ao passar o mouse */
+  border-color: #555; /* muda cor ao passar o mouse */
 }

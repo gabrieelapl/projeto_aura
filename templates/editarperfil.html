@@ -1,35 +1,45 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head> <meta charset="utf-8" /> 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Editar Perfil</title> <link rel="stylesheet" href="/static/css/styleeditarperfil.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="/static/css/styleeditarperfil.css" />
+  </head>
+  <body>
     <a href="javascript:history.back()" class="back-arrow"></a>
-  <div class="wrap">
-    <section class="card form-center" aria-label="Editar perfil">
-      <h1 class="title">Perfil</h1>
+    <div class="wrap">
+      <section class="card form-center" aria-label="Editar perfil">
+        <h1 class="title">Perfil</h1>
 
-      <div class="avatar">
-        <img src="../static/imgs/estudante.jpg" alt="avatar">
-      </div>
-
-      <a href="#" class="btn-change">Mudar foto</a>
-
-    <form action="{{ url_for('editarperfil') }}" method="post" enctype="multipart/form-data" style="margin-top:18px;text-align:left;">
-      <label class="label">Nome de usuário</label>
-      <input class="input" name="nome" value="{{ usuario.nome }}" required>
-
-      <label class="label">Bio</label>
-      <textarea name="bio" rows="4" required>{{ usuario.bio }}</textarea>
-
-      <div class="actions">
-          <button type="submit" class="btn-custom">Salvar</button>
+        <div class="avatar">
+          <img src="../static/imgs/estudante.jpg" alt="avatar" />
         </div>
-</form>
 
-    </section>
-  </div>
+        <a href="#" class="btn-change">Mudar foto</a>
 
-</body>
+        <form
+          action="{{ url_for('editarperfil') }}"
+          method="post"
+          enctype="multipart/form-data"
+          style="margin-top: 18px; text-align: left"
+        >
+          <label class="label">Nome de usuário</label>
+          <input
+            class="input"
+            name="nome"
+            value="{{ usuario.nome }}"
+            required
+          />
+
+          <label class="label">Bio</label>
+          <textarea name="bio" rows="4" required>{{ usuario.bio }}</textarea>
+
+          <div class="actions">
+            <button type="submit" class="btn-custom">Salvar</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </body>
 </html>
