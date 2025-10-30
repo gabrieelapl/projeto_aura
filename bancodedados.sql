@@ -142,6 +142,14 @@ INSERT INTO citacoes (artigo_id, titulo, autores, citado) VALUES
 (1, 'Atenção é Tudo que Você Precisa', 'Vaswani et al. (2017)', 5),
 (1, 'Classificação de Imagens com Redes Neurais Convolucionais Profundas', 'Krizhevsky, Sutskever e Hinton (2012)', 4);
 
+
+INSERT INTO selecionar_resumo (resumo, palavras_chave)
+VALUES (
+  'Este artigo apresenta uma comparação entre a pandemia de gripe espanhola e a de covid, dissertando sobre como elas se interligam historicamente, com o objetivo de mostrar os impactos da evolução das tecnologias na área de educação em diferentes épocas. Ambas epidemias são causadas por vírus que afetam as vias respiratórias e se transmitem pelo contato contaminado. Nesse comparativo, evidencia-se como foi possível usar a tecnologia em conjunto com as atividades educacionais nesses momentos pandêmicos. Quais ferramentas foram utilizadas e quais benefícios elas trouxeram? Cita os meios tecnológicos que possibilitaram a comunicação nestes períodos e que foram importantes para dar continuidade aos processos educacionais. O tema é desenvolvido de maneira didática, direcionada a um público maior e não apenas para a comunidade científica.',
+  'Epidemia,Avanço,Didática,Ferramenta'
+);
+
+
 -- ======================================
 -- 4. Ajuste de Foreign Keys (sem ON DELETE CASCADE)
 -- ======================================
